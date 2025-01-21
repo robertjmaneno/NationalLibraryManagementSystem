@@ -1,0 +1,3 @@
+﻿<Project>
+  <Import Project="..\buildMultiTargeting\NaLib.CoreService.API.props" />
+</Project>

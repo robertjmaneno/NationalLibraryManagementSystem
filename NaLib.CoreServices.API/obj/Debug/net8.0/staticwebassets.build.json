@@ -1,0 +1,12 @@
+{
+  "Version": 1,
+  "Hash": "y+d/LvVWTr/54xH0otO3BH5BnlqEjid8ry+ivD1RMMk=",
+  "Source": "NaLib.CoreService.API",
+  "BasePath": "_content/NaLib.CoreService.API",
+  "Mode": "Default",
+  "ManifestType": "Build",
+  "ReferencedProjectsConfiguration": [],
+  "DiscoveryPatterns": [],
+  "Assets": [],
+  "Endpoints": []
+}
