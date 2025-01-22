@@ -6,10 +6,10 @@ using System.Threading.Tasks;
 
 namespace NaLib.CoreService.Lib.Dto
 {
-    public class LendingCheckoutRequestDto
+    public class LendingCheckoutRequestDto 
     {
         public string MembershipId { get; set; }
-        public List<int> LibraryResourceIds { get; set; }
+        public List<int> LibraryResourceId { get; set; }
     }
 
 }
