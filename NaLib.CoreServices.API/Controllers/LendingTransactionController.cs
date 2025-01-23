@@ -3,50 +3,45 @@ using Microsoft.EntityFrameworkCore;
 using NaLib.CoreService.Lib.Common;
 using NaLib.CoreService.Lib.Data;
 using NaLib.CoreService.Lib.Dto;
+using NaLib.CoreService.Lib.Interfaces;
 using NaLib.CoreService.Lib.Utils;
 
 namespace NaLib.CoreService.API.Controllers
 {
-
-
     [Route(ApiUrls.LendingTransaction)]
     [ApiController]
-    public class LendingTransactionController : Controller
+    public class LendingTransactionController : ControllerBase
     {
         private readonly NaLibCoreServiceDbContext _context;
         private readonly IConfiguration _configuration;
-        CheckResourceAvailability _checkResourceAvailability;
+        private readonly ICatalogService _checkCatalogueService;
 
-        public LendingTransactionController(NaLibCoreServiceDbContext context, IConfiguration configuration, CheckResourceAvailability checkResourceAvailability)
+        public LendingTransactionController(NaLibCoreServiceDbContext context, IConfiguration configuration, ICatalogService checkCatalogueService)
         {
             _context = context;
             _configuration = configuration;
-            _checkResourceAvailability = checkResourceAvailability;
+            _checkCatalogueService = checkCatalogueService;
         }
 
         /// <summary>
-        /// Handles the checkout of resources for a member.
+        /// Handles the checkout of a single resource for a member.
         /// </summary>
-        /// <param name="request">The request data for checking out resources.</param>
-        /// <returns>A response indicating whether the resources were successfully checked out.</returns>
-        /// <response code="200">Resources checked out successfully.</response>
-        /// <response code="400">Some resources are not available for lending.</response>
-        /// <response code="404">The member with the provided membership ID was not found.</response>
+        /// <param name="request">The request data for checking out a resource.</param>
+        /// <returns>A response indicating whether the resource was successfully checked out.</returns>
+        /// <response code="200">Resource checked out successfully.</response>
+        /// <response code="400">The resource is not available for lending.</response>
+        /// <response code="404">The member with the provided membership ID or the resource was not found.</response>
         /// <response code="500">Internal server error during database operation.</response>
         [HttpPost(ApiUrls.CheckoutResources)]
         [ProducesResponseType(typeof(Response<object>), StatusCodes.Status200OK)]
         [ProducesResponseType(typeof(Response<object>), StatusCodes.Status400BadRequest)]
         [ProducesResponseType(typeof(Response<object>), StatusCodes.Status404NotFound)]
         [ProducesResponseType(typeof(Response<object>), StatusCodes.Status500InternalServerError)]
-        public async Task<IActionResult> CheckoutResources([FromBody] LendingCheckoutRequestDto request)
+        public async Task<IActionResult> CheckoutResource([FromBody] LendingCheckoutRequestDto request)
         {
             if (!ModelState.IsValid)
             {
-                return this.SendApiError<object>(
-                    null, 
-                    "Validation error", 
-                    ModelState 
-                );
+                return this.SendApiError<object>(null, "Validation error", ModelState);
             }
 
             await using var transaction = await _context.Database.BeginTransactionAsync();
@@ -57,85 +52,98 @@ namespace NaLib.CoreService.API.Controllers
                 if (member == null)
                 {
                     return this.SendApiError<object>(
-                      
                         "Membership not found",
-                        "MembershipId", 
+                        "MembershipId",
                         "The provided MembershipId does not exist.",
-                        StatusCodes.Status404NotFound 
+                        StatusCodes.Status404NotFound
                     );
                 }
 
-                var unavailableResources = new List<string>();
-                var validResources = new List<int>();
-
-
-                foreach (var resourceId in request.LibraryResourceId)
-                {
-                    var isAvailable = true;
-                    if (!isAvailable)
-                        unavailableResources.Add($"Resource ID {resourceId}: Not available.");
-                    else
-                        validResources.Add(resourceId);
-                }
-
-                if (unavailableResources.Any())
+                var catalogResponse = await _checkCatalogueService.GetResourceDetailsAsync(request.LibraryResourceId);
+                if (catalogResponse == null)
                 {
                     return this.SendApiError<object>(
-                        
-                        "Some resources are not available for lending.",
-                        "LibraryResourceId", 
-                        string.Join(", ", unavailableResources), 
-                        StatusCodes.Status400BadRequest
+                        "Resource not found in catalog.",
+                        "LibraryResourceId",
+                        "The provided LibraryResourceId does not exist in the catalog.",
+                        StatusCodes.Status404NotFound
                     );
                 }
 
-                var lendingTransactions = validResources.Select(resourceId => new LendingTransaction
+                if (!catalogResponse.IsBorrowable)
+                {
+                    return this.SendApiResponse(
+                        "Resource is not borrowable",
+                        null
+                    );
+                }
+                else if (catalogResponse.BorrowStatus != "Available")
+                {
+                    return this.SendApiResponse(
+                        "Resource is already borrowed",
+                        null
+                    );
+                }
+
+                var status = "Borrowed";
+                var updateResponse = await _checkCatalogueService.UpdateResourceStatusAsync(request.LibraryResourceId, status);
+                if (!updateResponse)
+                {
+                    await transaction.RollbackAsync();
+                    return this.SendApiError<object>(
+                        null,
+                        "UpdateError",
+                        "Failed to update the resource status to 'Borrowed'.",
+                        StatusCodes.Status500InternalServerError
+                    );
+                }
+
+                var lendingTransaction = new LendingTransaction
                 {
                     MemberId = member.MemberId,
-                    ResourceId = resourceId,
+                    ResourceId = request.LibraryResourceId,
                     LendingDate = DateOnly.FromDateTime(DateTime.UtcNow),
-                    DueDate = DateOnly.FromDateTime(DateTime.UtcNow.AddDays(14)),
+                    DueDate = DateOnly.FromDateTime(DateTime.UtcNow.AddDays(catalogResponse.BorrowLimitInDays)),
                     LendingStatus = "Active",
                     IsAlertIssued = false,
                     CreatedAt = DateOnly.FromDateTime(DateTime.UtcNow),
                     UpdatedAt = DateOnly.FromDateTime(DateTime.UtcNow),
-                }).ToList();
+                };
 
-                
-                _context.LendingTransactions.AddRange(lendingTransactions);
+                _context.LendingTransactions.Add(lendingTransaction);
                 await _context.SaveChangesAsync();
-
 
                 await transaction.CommitAsync();
 
-         
-                return this.SendApiResponse("Resources checked out successfully.", null);
+                return this.SendApiResponse("Resource checked out successfully.", null);
             }
             catch (Exception ex)
             {
                 await transaction.RollbackAsync();
                 return this.SendApiError<object>(
-                    null, 
+                    null,
                     "DatabaseError",
                     "An error occurred while processing your request.",
-                    StatusCodes.Status500InternalServerError 
+                    StatusCodes.Status500InternalServerError
                 );
             }
         }
+    
 
-        /// <summary>
-        /// Handles the return of resources by a member.
-        /// </summary>
-        /// <param name="request">The request body containing the resources to be returned, including their condition.</param>
-        /// <returns>
-        /// Returns a status indicating whether the resources were successfully returned or if there were errors. 
-        /// If the membership or any resource is invalid, appropriate error messages are returned.
-        /// </returns>
-        /// <response code="200">Returns a success message when resources are successfully returned.</response>
-        /// <response code="400">Returns a bad request message when some resources could not be processed.</response>
-        /// <response code="404">Returns a not found message if the membership is not found.</response>
-        /// <response code="500">Returns an internal server error message for any unexpected issues.</response>
-        [HttpPost(ApiUrls.ReturnResources)]
+
+/// <summary>
+/// Handles the return of resources by a member.
+/// </summary>
+/// <param name="request">The request body containing the resources to be returned, including their condition.</param>
+/// <returns>
+/// Returns a status indicating whether the resources were successfully returned or if there were errors. 
+/// If the membership or any resource is invalid, appropriate error messages are returned.
+/// </returns>
+/// <response code="200">Returns a success message when resources are successfully returned.</response>
+/// <response code="400">Returns a bad request message when some resources could not be processed.</response>
+/// <response code="404">Returns a not found message if the membership is not found.</response>
+/// <response code="500">Returns an internal server error message for any unexpected issues.</response>
+[HttpPost(ApiUrls.ReturnResources)]
         [ProducesResponseType(typeof(Response<object>), StatusCodes.Status200OK)]
         [ProducesResponseType(typeof(Response<object>), StatusCodes.Status400BadRequest)]
         [ProducesResponseType(typeof(Response<object>), StatusCodes.Status404NotFound)]
@@ -151,11 +159,10 @@ namespace NaLib.CoreService.API.Controllers
                 );
             }
 
-            await using var dbTransaction = await _context.Database.BeginTransactionAsync(); 
+            await using var dbTransaction = await _context.Database.BeginTransactionAsync();
 
             try
             {
-
                 var member = await _context.Memberships
                     .FirstOrDefaultAsync(m => m.MembershipId == request.MembershipId);
                 if (member == null)
@@ -177,11 +184,10 @@ namespace NaLib.CoreService.API.Controllers
                     var resourceId = resourceReturnInfo.ResourceId;
                     var condition = resourceReturnInfo.Condition;
 
-                    var lendingTransaction = await _context.LendingTransactions 
+                    var lendingTransaction = await _context.LendingTransactions
                         .FirstOrDefaultAsync(t => t.ResourceId == resourceId
                                                   && t.MemberId == member.MemberId
                                                   && t.LendingStatus == "Active");
-
 
                     if (lendingTransaction == null)
                     {
@@ -189,20 +195,31 @@ namespace NaLib.CoreService.API.Controllers
                         continue;
                     }
 
-
                     if (DateOnly.FromDateTime(DateTime.UtcNow) > lendingTransaction.DueDate)
                     {
                         newOverdueCount++;
                     }
 
-
+                    
                     lendingTransaction.LendingStatus = "Returned";
                     lendingTransaction.ReturnDate = DateOnly.FromDateTime(DateTime.UtcNow);
                     lendingTransaction.UpdatedAt = DateOnly.FromDateTime(DateTime.UtcNow);
                     lendingTransaction.ResourceCondition = condition;
                     transactionsToUpdate.Add(lendingTransaction);
-                }
 
+                    
+                    var updateResponse = await _checkCatalogueService.UpdateResourceStatusAsync(resourceId, "Available");
+                    if (!updateResponse)
+                    {
+                        await dbTransaction.RollbackAsync();
+                        return this.SendApiError<object>(
+                            null,
+                            "UpdateError",
+                            "Failed to update the resource status to 'Available'.",
+                            StatusCodes.Status500InternalServerError
+                        );
+                    }
+                }
 
                 if (invalidResources.Any())
                 {
@@ -222,19 +239,15 @@ namespace NaLib.CoreService.API.Controllers
                     _context.Memberships.Update(member);
                 }
 
-
                 _context.LendingTransactions.UpdateRange(transactionsToUpdate);
                 await _context.SaveChangesAsync();
 
-
                 await dbTransaction.CommitAsync();
-
 
                 return this.SendApiResponse("Resources returned successfully.", null);
             }
             catch (Exception ex)
             {
-
                 await dbTransaction.RollbackAsync();
                 return this.SendApiError<object>(
                     null,
@@ -244,6 +257,5 @@ namespace NaLib.CoreService.API.Controllers
                 );
             }
         }
-
     }
 }

@@ -9,7 +9,7 @@ namespace NaLib.CoreService.Lib.Dto
     public class LendingCheckoutRequestDto 
     {
         public string MembershipId { get; set; }
-        public List<int> LibraryResourceId { get; set; }
+        public string LibraryResourceId { get; set; }
     }
 
 }

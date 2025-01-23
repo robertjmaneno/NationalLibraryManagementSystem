@@ -8,7 +8,7 @@ namespace NaLib.CoreService.Lib.Dto
 {
     public class UpdateResourceConditionDto
     {
-        public int LibraryResourceId { get; set; }
+        public string LibraryResourceId { get; set; }
         public string Condition { get; set; } 
     }
 

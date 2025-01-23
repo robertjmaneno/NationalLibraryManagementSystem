@@ -113,7 +113,7 @@
         }
       }
     },
-    "/api/v1/LendingTransaction/checkout": {
+    "/api/v1/LendingTransaction/checkoutResource": {
       "post": {
         "tags": [
           "LendingTransaction"
@@ -221,7 +221,7 @@
         }
       }
     },
-    "/api/v1/LendingTransaction/return": {
+    "/api/v1/LendingTransaction/returnResource": {
       "post": {
         "tags": [
           "LendingTransaction"
@@ -443,8 +443,65 @@
           }
         ],
         "responses": {
-          "200": {
-            "description": "OK"
+          "201": {
+            "description": "Created",
+            "content": {
+              "text/plain": {
+                "schema": {
+                  "$ref": "#/components/schemas/MemberWithMembershipResponseDtoResponse"
+                }
+              },
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/MemberWithMembershipResponseDtoResponse"
+                }
+              },
+              "text/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/MemberWithMembershipResponseDtoResponse"
+                }
+              }
+            }
+          },
+          "400": {
+            "description": "Bad Request",
+            "content": {
+              "text/plain": {
+                "schema": {
+                  "$ref": "#/components/schemas/ObjectResponse"
+                }
+              },
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/ObjectResponse"
+                }
+              },
+              "text/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/ObjectResponse"
+                }
+              }
+            }
+          },
+          "500": {
+            "description": "Internal Server Error",
+            "content": {
+              "text/plain": {
+                "schema": {
+                  "$ref": "#/components/schemas/ObjectResponse"
+                }
+              },
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/ObjectResponse"
+                }
+              },
+              "text/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/ObjectResponse"
+                }
+              }
+            }
           }
         }
       }
@@ -798,26 +855,26 @@
         }
       }
     },
-    "/api/v1/Roles_And_Permissions/createRole": {
+    "/api/v1/RolesAndPermissions/createRole": {
       "post": {
         "tags": [
-          "Roles"
+          "RolesAndPermissions"
         ],
         "requestBody": {
           "content": {
             "application/json": {
               "schema": {
-                "$ref": "#/components/schemas/Role"
+                "$ref": "#/components/schemas/CreateRoleRequest"
               }
             },
             "text/json": {
               "schema": {
-                "$ref": "#/components/schemas/Role"
+                "$ref": "#/components/schemas/CreateRoleRequest"
               }
             },
             "application/*+json": {
               "schema": {
-                "$ref": "#/components/schemas/Role"
+                "$ref": "#/components/schemas/CreateRoleRequest"
               }
             }
           }
@@ -828,17 +885,17 @@
             "content": {
               "text/plain": {
                 "schema": {
-                  "$ref": "#/components/schemas/Role"
+                  "$ref": "#/components/schemas/RoleDtoResponse"
                 }
               },
               "application/json": {
                 "schema": {
-                  "$ref": "#/components/schemas/Role"
+                  "$ref": "#/components/schemas/RoleDtoResponse"
                 }
               },
               "text/json": {
                 "schema": {
-                  "$ref": "#/components/schemas/Role"
+                  "$ref": "#/components/schemas/RoleDtoResponse"
                 }
               }
             }
@@ -848,35 +905,52 @@
             "content": {
               "text/plain": {
                 "schema": {
-                  "$ref": "#/components/schemas/ProblemDetails"
+                  "$ref": "#/components/schemas/ObjectResponse"
                 }
               },
               "application/json": {
                 "schema": {
-                  "$ref": "#/components/schemas/ProblemDetails"
+                  "$ref": "#/components/schemas/ObjectResponse"
                 }
               },
               "text/json": {
                 "schema": {
-                  "$ref": "#/components/schemas/ProblemDetails"
+                  "$ref": "#/components/schemas/ObjectResponse"
                 }
               }
             }
           },
           "500": {
-            "description": "Internal Server Error"
+            "description": "Internal Server Error",
+            "content": {
+              "text/plain": {
+                "schema": {
+                  "$ref": "#/components/schemas/ObjectResponse"
+                }
+              },
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/ObjectResponse"
+                }
+              },
+              "text/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/ObjectResponse"
+                }
+              }
+            }
           }
         }
       }
     },
-    "/api/v1/Roles_And_Permissions/getRole": {
+    "/api/v1/RolesAndPermissions/getRole": {
       "get": {
         "tags": [
-          "Roles"
+          "RolesAndPermissions"
         ],
         "parameters": [
           {
-            "name": "id",
+            "name": "roleId",
             "in": "query",
             "schema": {
               "type": "integer",
@@ -890,17 +964,17 @@
             "content": {
               "text/plain": {
                 "schema": {
-                  "$ref": "#/components/schemas/Role"
+                  "$ref": "#/components/schemas/RoleDtoResponse"
                 }
               },
               "application/json": {
                 "schema": {
-                  "$ref": "#/components/schemas/Role"
+                  "$ref": "#/components/schemas/RoleDtoResponse"
                 }
               },
               "text/json": {
                 "schema": {
-                  "$ref": "#/components/schemas/Role"
+                  "$ref": "#/components/schemas/RoleDtoResponse"
                 }
               }
             }
@@ -910,17 +984,37 @@
             "content": {
               "text/plain": {
                 "schema": {
-                  "$ref": "#/components/schemas/ProblemDetails"
+                  "$ref": "#/components/schemas/ObjectResponse"
                 }
               },
               "application/json": {
                 "schema": {
-                  "$ref": "#/components/schemas/ProblemDetails"
+                  "$ref": "#/components/schemas/ObjectResponse"
                 }
               },
               "text/json": {
                 "schema": {
-                  "$ref": "#/components/schemas/ProblemDetails"
+                  "$ref": "#/components/schemas/ObjectResponse"
+                }
+              }
+            }
+          },
+          "500": {
+            "description": "Internal Server Error",
+            "content": {
+              "text/plain": {
+                "schema": {
+                  "$ref": "#/components/schemas/ObjectResponse"
+                }
+              },
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/ObjectResponse"
+                }
+              },
+              "text/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/ObjectResponse"
                 }
               }
             }
@@ -928,26 +1022,26 @@
         }
       }
     },
-    "/api/v1/Roles_And_Permissions/createPermission": {
+    "/api/v1/RolesAndPermissions/createPermission": {
       "post": {
         "tags": [
-          "Roles"
+          "RolesAndPermissions"
         ],
         "requestBody": {
           "content": {
             "application/json": {
               "schema": {
-                "$ref": "#/components/schemas/Permission"
+                "$ref": "#/components/schemas/CreatePermissionRequest"
               }
             },
             "text/json": {
               "schema": {
-                "$ref": "#/components/schemas/Permission"
+                "$ref": "#/components/schemas/CreatePermissionRequest"
               }
             },
             "application/*+json": {
               "schema": {
-                "$ref": "#/components/schemas/Permission"
+                "$ref": "#/components/schemas/CreatePermissionRequest"
               }
             }
           }
@@ -958,17 +1052,17 @@
             "content": {
               "text/plain": {
                 "schema": {
-                  "$ref": "#/components/schemas/Permission"
+                  "$ref": "#/components/schemas/PermissionDtoResponse"
                 }
               },
               "application/json": {
                 "schema": {
-                  "$ref": "#/components/schemas/Permission"
+                  "$ref": "#/components/schemas/PermissionDtoResponse"
                 }
               },
               "text/json": {
                 "schema": {
-                  "$ref": "#/components/schemas/Permission"
+                  "$ref": "#/components/schemas/PermissionDtoResponse"
                 }
               }
             }
@@ -978,55 +1072,37 @@
             "content": {
               "text/plain": {
                 "schema": {
-                  "$ref": "#/components/schemas/ProblemDetails"
+                  "$ref": "#/components/schemas/ObjectResponse"
                 }
               },
               "application/json": {
                 "schema": {
-                  "$ref": "#/components/schemas/ProblemDetails"
+                  "$ref": "#/components/schemas/ObjectResponse"
                 }
               },
               "text/json": {
                 "schema": {
-                  "$ref": "#/components/schemas/ProblemDetails"
+                  "$ref": "#/components/schemas/ObjectResponse"
                 }
               }
             }
-          }
-        }
-      }
-    },
-    "/api/v1/Roles_And_Permissions/getPermission": {
-      "get": {
-        "tags": [
-          "Roles"
-        ],
-        "responses": {
-          "200": {
-            "description": "OK",
+          },
+          "500": {
+            "description": "Internal Server Error",
             "content": {
               "text/plain": {
                 "schema": {
-                  "type": "array",
-                  "items": {
-                    "$ref": "#/components/schemas/Permission"
-                  }
+                  "$ref": "#/components/schemas/ObjectResponse"
                 }
               },
               "application/json": {
                 "schema": {
-                  "type": "array",
-                  "items": {
-                    "$ref": "#/components/schemas/Permission"
-                  }
+                  "$ref": "#/components/schemas/ObjectResponse"
                 }
               },
               "text/json": {
                 "schema": {
-                  "type": "array",
-                  "items": {
-                    "$ref": "#/components/schemas/Permission"
-                  }
+                  "$ref": "#/components/schemas/ObjectResponse"
                 }
               }
             }
@@ -1034,14 +1110,14 @@
         }
       }
     },
-    "/api/v1/Roles_And_Permissions/getPerissinID": {
+    "/api/v1/RolesAndPermissions/getPermission": {
       "get": {
         "tags": [
-          "Roles"
+          "RolesAndPermissions"
         ],
         "parameters": [
           {
-            "name": "id",
+            "name": "permissionId",
             "in": "query",
             "schema": {
               "type": "integer",
@@ -1055,17 +1131,17 @@
             "content": {
               "text/plain": {
                 "schema": {
-                  "$ref": "#/components/schemas/Permission"
+                  "$ref": "#/components/schemas/PermissionDtoResponse"
                 }
               },
               "application/json": {
                 "schema": {
-                  "$ref": "#/components/schemas/Permission"
+                  "$ref": "#/components/schemas/PermissionDtoResponse"
                 }
               },
               "text/json": {
                 "schema": {
-                  "$ref": "#/components/schemas/Permission"
+                  "$ref": "#/components/schemas/PermissionDtoResponse"
                 }
               }
             }
@@ -1075,17 +1151,37 @@
             "content": {
               "text/plain": {
                 "schema": {
-                  "$ref": "#/components/schemas/ProblemDetails"
+                  "$ref": "#/components/schemas/ObjectResponse"
                 }
               },
               "application/json": {
                 "schema": {
-                  "$ref": "#/components/schemas/ProblemDetails"
+                  "$ref": "#/components/schemas/ObjectResponse"
                 }
               },
               "text/json": {
                 "schema": {
-                  "$ref": "#/components/schemas/ProblemDetails"
+                  "$ref": "#/components/schemas/ObjectResponse"
+                }
+              }
+            }
+          },
+          "500": {
+            "description": "Internal Server Error",
+            "content": {
+              "text/plain": {
+                "schema": {
+                  "$ref": "#/components/schemas/ObjectResponse"
+                }
+              },
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/ObjectResponse"
+                }
+              },
+              "text/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/ObjectResponse"
                 }
               }
             }
@@ -1093,26 +1189,26 @@
         }
       }
     },
-    "/api/v1/Roles_And_Permissions/createRolePermission": {
+    "/api/v1/RolesAndPermissions/AssignRoleToPermissions": {
       "post": {
         "tags": [
-          "Roles"
+          "RolesAndPermissions"
         ],
         "requestBody": {
           "content": {
             "application/json": {
               "schema": {
-                "$ref": "#/components/schemas/RolePermission"
+                "$ref": "#/components/schemas/AssignRoleToPermissionsRequest"
               }
             },
             "text/json": {
               "schema": {
-                "$ref": "#/components/schemas/RolePermission"
+                "$ref": "#/components/schemas/AssignRoleToPermissionsRequest"
               }
             },
             "application/*+json": {
               "schema": {
-                "$ref": "#/components/schemas/RolePermission"
+                "$ref": "#/components/schemas/AssignRoleToPermissionsRequest"
               }
             }
           }
@@ -1123,17 +1219,17 @@
             "content": {
               "text/plain": {
                 "schema": {
-                  "$ref": "#/components/schemas/RolePermission"
+                  "$ref": "#/components/schemas/ObjectResponse"
                 }
               },
               "application/json": {
                 "schema": {
-                  "$ref": "#/components/schemas/RolePermission"
+                  "$ref": "#/components/schemas/ObjectResponse"
                 }
               },
               "text/json": {
                 "schema": {
-                  "$ref": "#/components/schemas/RolePermission"
+                  "$ref": "#/components/schemas/ObjectResponse"
                 }
               }
             }
@@ -1143,94 +1239,17 @@
             "content": {
               "text/plain": {
                 "schema": {
-                  "$ref": "#/components/schemas/ProblemDetails"
+                  "$ref": "#/components/schemas/ObjectResponse"
                 }
               },
               "application/json": {
                 "schema": {
-                  "$ref": "#/components/schemas/ProblemDetails"
+                  "$ref": "#/components/schemas/ObjectResponse"
                 }
               },
               "text/json": {
                 "schema": {
-                  "$ref": "#/components/schemas/ProblemDetails"
-                }
-              }
-            }
-          }
-        }
-      }
-    },
-    "/api/v1/Roles_And_Permissions/getRolePermission": {
-      "get": {
-        "tags": [
-          "Roles"
-        ],
-        "responses": {
-          "200": {
-            "description": "OK",
-            "content": {
-              "text/plain": {
-                "schema": {
-                  "type": "array",
-                  "items": {
-                    "$ref": "#/components/schemas/RolePermission"
-                  }
-                }
-              },
-              "application/json": {
-                "schema": {
-                  "type": "array",
-                  "items": {
-                    "$ref": "#/components/schemas/RolePermission"
-                  }
-                }
-              },
-              "text/json": {
-                "schema": {
-                  "type": "array",
-                  "items": {
-                    "$ref": "#/components/schemas/RolePermission"
-                  }
-                }
-              }
-            }
-          }
-        }
-      }
-    },
-    "/api/v1/Roles_And_Permissions/getRolePermissionById": {
-      "get": {
-        "tags": [
-          "Roles"
-        ],
-        "parameters": [
-          {
-            "name": "id",
-            "in": "query",
-            "schema": {
-              "type": "integer",
-              "format": "int32"
-            }
-          }
-        ],
-        "responses": {
-          "200": {
-            "description": "OK",
-            "content": {
-              "text/plain": {
-                "schema": {
-                  "$ref": "#/components/schemas/RolePermission"
-                }
-              },
-              "application/json": {
-                "schema": {
-                  "$ref": "#/components/schemas/RolePermission"
-                }
-              },
-              "text/json": {
-                "schema": {
-                  "$ref": "#/components/schemas/RolePermission"
+                  "$ref": "#/components/schemas/ObjectResponse"
                 }
               }
             }
@@ -1240,17 +1259,37 @@
             "content": {
               "text/plain": {
                 "schema": {
-                  "$ref": "#/components/schemas/ProblemDetails"
+                  "$ref": "#/components/schemas/ObjectResponse"
                 }
               },
               "application/json": {
                 "schema": {
-                  "$ref": "#/components/schemas/ProblemDetails"
+                  "$ref": "#/components/schemas/ObjectResponse"
                 }
               },
               "text/json": {
                 "schema": {
-                  "$ref": "#/components/schemas/ProblemDetails"
+                  "$ref": "#/components/schemas/ObjectResponse"
+                }
+              }
+            }
+          },
+          "500": {
+            "description": "Internal Server Error",
+            "content": {
+              "text/plain": {
+                "schema": {
+                  "$ref": "#/components/schemas/ObjectResponse"
+                }
+              },
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/ObjectResponse"
+                }
+              },
+              "text/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/ObjectResponse"
                 }
               }
             }
@@ -1346,7 +1385,56 @@
         }
       }
     },
-    "/api/v1/Staff/getSatff": {
+    "/api/v1/Staff/getAllStaffs": {
+      "get": {
+        "tags": [
+          "Staff"
+        ],
+        "responses": {
+          "200": {
+            "description": "OK",
+            "content": {
+              "text/plain": {
+                "schema": {
+                  "$ref": "#/components/schemas/UserDetailDtoListResponse"
+                }
+              },
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/UserDetailDtoListResponse"
+                }
+              },
+              "text/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/UserDetailDtoListResponse"
+                }
+              }
+            }
+          },
+          "500": {
+            "description": "Internal Server Error",
+            "content": {
+              "text/plain": {
+                "schema": {
+                  "$ref": "#/components/schemas/ObjectResponse"
+                }
+              },
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/ObjectResponse"
+                }
+              },
+              "text/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/ObjectResponse"
+                }
+              }
+            }
+          }
+        }
+      }
+    },
+    "/api/v1/Staff/getStaff": {
       "get": {
         "tags": [
           "Staff"
@@ -1367,17 +1455,17 @@
             "content": {
               "text/plain": {
                 "schema": {
-                  "$ref": "#/components/schemas/User"
+                  "$ref": "#/components/schemas/UserDtoResponse"
                 }
               },
               "application/json": {
                 "schema": {
-                  "$ref": "#/components/schemas/User"
+                  "$ref": "#/components/schemas/UserDtoResponse"
                 }
               },
               "text/json": {
                 "schema": {
-                  "$ref": "#/components/schemas/User"
+                  "$ref": "#/components/schemas/UserDtoResponse"
                 }
               }
             }
@@ -1387,17 +1475,457 @@
             "content": {
               "text/plain": {
                 "schema": {
-                  "$ref": "#/components/schemas/ProblemDetails"
+                  "$ref": "#/components/schemas/ObjectResponse"
                 }
               },
               "application/json": {
                 "schema": {
-                  "$ref": "#/components/schemas/ProblemDetails"
+                  "$ref": "#/components/schemas/ObjectResponse"
                 }
               },
               "text/json": {
                 "schema": {
-                  "$ref": "#/components/schemas/ProblemDetails"
+                  "$ref": "#/components/schemas/ObjectResponse"
+                }
+              }
+            }
+          }
+        }
+      }
+    },
+    "/api/v1/StaffDetails/createSkills": {
+      "post": {
+        "tags": [
+          "StaffDetails"
+        ],
+        "requestBody": {
+          "content": {
+            "application/json": {
+              "schema": {
+                "$ref": "#/components/schemas/CreateSkillRequest"
+              }
+            },
+            "text/json": {
+              "schema": {
+                "$ref": "#/components/schemas/CreateSkillRequest"
+              }
+            },
+            "application/*+json": {
+              "schema": {
+                "$ref": "#/components/schemas/CreateSkillRequest"
+              }
+            }
+          }
+        },
+        "responses": {
+          "201": {
+            "description": "Created",
+            "content": {
+              "text/plain": {
+                "schema": {
+                  "$ref": "#/components/schemas/ObjectResponse"
+                }
+              },
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/ObjectResponse"
+                }
+              },
+              "text/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/ObjectResponse"
+                }
+              }
+            }
+          },
+          "400": {
+            "description": "Bad Request",
+            "content": {
+              "text/plain": {
+                "schema": {
+                  "$ref": "#/components/schemas/ObjectResponse"
+                }
+              },
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/ObjectResponse"
+                }
+              },
+              "text/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/ObjectResponse"
+                }
+              }
+            }
+          },
+          "500": {
+            "description": "Internal Server Error",
+            "content": {
+              "text/plain": {
+                "schema": {
+                  "$ref": "#/components/schemas/ObjectResponse"
+                }
+              },
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/ObjectResponse"
+                }
+              },
+              "text/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/ObjectResponse"
+                }
+              }
+            }
+          }
+        }
+      }
+    },
+    "/api/v1/StaffDetails/createGrades": {
+      "post": {
+        "tags": [
+          "StaffDetails"
+        ],
+        "requestBody": {
+          "content": {
+            "application/json": {
+              "schema": {
+                "$ref": "#/components/schemas/CreateGradeRequest"
+              }
+            },
+            "text/json": {
+              "schema": {
+                "$ref": "#/components/schemas/CreateGradeRequest"
+              }
+            },
+            "application/*+json": {
+              "schema": {
+                "$ref": "#/components/schemas/CreateGradeRequest"
+              }
+            }
+          }
+        },
+        "responses": {
+          "201": {
+            "description": "Created",
+            "content": {
+              "text/plain": {
+                "schema": {
+                  "$ref": "#/components/schemas/ObjectResponse"
+                }
+              },
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/ObjectResponse"
+                }
+              },
+              "text/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/ObjectResponse"
+                }
+              }
+            }
+          },
+          "400": {
+            "description": "Bad Request",
+            "content": {
+              "text/plain": {
+                "schema": {
+                  "$ref": "#/components/schemas/ObjectResponse"
+                }
+              },
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/ObjectResponse"
+                }
+              },
+              "text/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/ObjectResponse"
+                }
+              }
+            }
+          },
+          "500": {
+            "description": "Internal Server Error",
+            "content": {
+              "text/plain": {
+                "schema": {
+                  "$ref": "#/components/schemas/ObjectResponse"
+                }
+              },
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/ObjectResponse"
+                }
+              },
+              "text/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/ObjectResponse"
+                }
+              }
+            }
+          }
+        }
+      }
+    },
+    "/api/v1/StaffDetails/createQualifications": {
+      "post": {
+        "tags": [
+          "StaffDetails"
+        ],
+        "requestBody": {
+          "content": {
+            "application/json": {
+              "schema": {
+                "$ref": "#/components/schemas/CreateQualificationRequest"
+              }
+            },
+            "text/json": {
+              "schema": {
+                "$ref": "#/components/schemas/CreateQualificationRequest"
+              }
+            },
+            "application/*+json": {
+              "schema": {
+                "$ref": "#/components/schemas/CreateQualificationRequest"
+              }
+            }
+          }
+        },
+        "responses": {
+          "201": {
+            "description": "Created",
+            "content": {
+              "text/plain": {
+                "schema": {
+                  "$ref": "#/components/schemas/ObjectResponse"
+                }
+              },
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/ObjectResponse"
+                }
+              },
+              "text/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/ObjectResponse"
+                }
+              }
+            }
+          },
+          "400": {
+            "description": "Bad Request",
+            "content": {
+              "text/plain": {
+                "schema": {
+                  "$ref": "#/components/schemas/ObjectResponse"
+                }
+              },
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/ObjectResponse"
+                }
+              },
+              "text/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/ObjectResponse"
+                }
+              }
+            }
+          },
+          "500": {
+            "description": "Internal Server Error",
+            "content": {
+              "text/plain": {
+                "schema": {
+                  "$ref": "#/components/schemas/ObjectResponse"
+                }
+              },
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/ObjectResponse"
+                }
+              },
+              "text/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/ObjectResponse"
+                }
+              }
+            }
+          }
+        }
+      }
+    },
+    "/api/v1/StaffDetails/createExperience": {
+      "post": {
+        "tags": [
+          "StaffDetails"
+        ],
+        "requestBody": {
+          "content": {
+            "application/json": {
+              "schema": {
+                "$ref": "#/components/schemas/CreateExperienceRequest"
+              }
+            },
+            "text/json": {
+              "schema": {
+                "$ref": "#/components/schemas/CreateExperienceRequest"
+              }
+            },
+            "application/*+json": {
+              "schema": {
+                "$ref": "#/components/schemas/CreateExperienceRequest"
+              }
+            }
+          }
+        },
+        "responses": {
+          "201": {
+            "description": "Created",
+            "content": {
+              "text/plain": {
+                "schema": {
+                  "$ref": "#/components/schemas/ObjectResponse"
+                }
+              },
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/ObjectResponse"
+                }
+              },
+              "text/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/ObjectResponse"
+                }
+              }
+            }
+          },
+          "400": {
+            "description": "Bad Request",
+            "content": {
+              "text/plain": {
+                "schema": {
+                  "$ref": "#/components/schemas/ObjectResponse"
+                }
+              },
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/ObjectResponse"
+                }
+              },
+              "text/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/ObjectResponse"
+                }
+              }
+            }
+          },
+          "500": {
+            "description": "Internal Server Error",
+            "content": {
+              "text/plain": {
+                "schema": {
+                  "$ref": "#/components/schemas/ObjectResponse"
+                }
+              },
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/ObjectResponse"
+                }
+              },
+              "text/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/ObjectResponse"
+                }
+              }
+            }
+          }
+        }
+      }
+    },
+    "/api/v1/StaffDetails/assignSkillToUser": {
+      "post": {
+        "tags": [
+          "StaffDetails"
+        ],
+        "requestBody": {
+          "content": {
+            "application/json": {
+              "schema": {
+                "$ref": "#/components/schemas/AssignSkillToUserRequest"
+              }
+            },
+            "text/json": {
+              "schema": {
+                "$ref": "#/components/schemas/AssignSkillToUserRequest"
+              }
+            },
+            "application/*+json": {
+              "schema": {
+                "$ref": "#/components/schemas/AssignSkillToUserRequest"
+              }
+            }
+          }
+        },
+        "responses": {
+          "200": {
+            "description": "OK",
+            "content": {
+              "text/plain": {
+                "schema": {
+                  "$ref": "#/components/schemas/ObjectResponse"
+                }
+              },
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/ObjectResponse"
+                }
+              },
+              "text/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/ObjectResponse"
+                }
+              }
+            }
+          },
+          "400": {
+            "description": "Bad Request",
+            "content": {
+              "text/plain": {
+                "schema": {
+                  "$ref": "#/components/schemas/ObjectResponse"
+                }
+              },
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/ObjectResponse"
+                }
+              },
+              "text/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/ObjectResponse"
+                }
+              }
+            }
+          },
+          "500": {
+            "description": "Internal Server Error",
+            "content": {
+              "text/plain": {
+                "schema": {
+                  "$ref": "#/components/schemas/ObjectResponse"
+                }
+              },
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/ObjectResponse"
+                }
+              },
+              "text/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/ObjectResponse"
                 }
               }
             }
@@ -1408,6 +1936,87 @@
   },
   "components": {
     "schemas": {
+      "AssignRoleToPermissionsRequest": {
+        "required": [
+          "permissionNames",
+          "roleName"
+        ],
+        "type": "object",
+        "properties": {
+          "roleName": {
+            "maxLength": 100,
+            "minLength": 0,
+            "type": "string"
+          },
+          "permissionNames": {
+            "type": "array",
+            "items": {
+              "type": "string"
+            }
+          }
+        },
+        "additionalProperties": false
+      },
+      "AssignSkillToUserRequest": {
+        "required": [
+          "skillName",
+          "userId"
+        ],
+        "type": "object",
+        "properties": {
+          "userId": {
+            "type": "integer",
+            "format": "int32"
+          },
+          "skillName": {
+            "minLength": 1,
+            "type": "string"
+          }
+        },
+        "additionalProperties": false
+      },
+      "CreateExperienceRequest": {
+        "required": [
+          "userId"
+        ],
+        "type": "object",
+        "properties": {
+          "yearsOfExperience": {
+            "type": "integer",
+            "format": "int32"
+          },
+          "userId": {
+            "type": "integer",
+            "format": "int32"
+          }
+        },
+        "additionalProperties": false
+      },
+      "CreateGradeRequest": {
+        "required": [
+          "gradeName",
+          "userId"
+        ],
+        "type": "object",
+        "properties": {
+          "gradeName": {
+            "maxLength": 100,
+            "minLength": 0,
+            "type": "string"
+          },
+          "description": {
+            "maxLength": 255,
+            "minLength": 0,
+            "type": "string",
+            "nullable": true
+          },
+          "userId": {
+            "type": "integer",
+            "format": "int32"
+          }
+        },
+        "additionalProperties": false
+      },
       "CreateMemberWithMembershipRequest": {
         "required": [
           "email",
@@ -1457,71 +2066,37 @@
         },
         "additionalProperties": false
       },
-      "Experience": {
+      "CreatePermissionRequest": {
+        "required": [
+          "permissionsName"
+        ],
         "type": "object",
         "properties": {
-          "id": {
-            "type": "integer",
-            "format": "int32"
+          "permissionsName": {
+            "maxLength": 255,
+            "minLength": 0,
+            "type": "string"
           },
-          "organizationName": {
+          "description": {
             "maxLength": 255,
             "minLength": 0,
             "type": "string",
             "nullable": true
-          },
-          "jobTitle": {
-            "maxLength": 255,
-            "minLength": 0,
-            "type": "string",
-            "nullable": true
-          },
-          "location": {
-            "maxLength": 255,
-            "minLength": 0,
-            "type": "string",
-            "nullable": true
-          },
-          "startDate": {
-            "type": "string",
-            "format": "date"
-          },
-          "endDate": {
-            "type": "string",
-            "format": "date",
-            "nullable": true
-          },
-          "createdAt": {
-            "type": "string",
-            "format": "date"
-          },
-          "updatedAt": {
-            "type": "string",
-            "format": "date",
-            "nullable": true
-          },
-          "userId": {
-            "type": "integer",
-            "format": "int32"
-          },
-          "user": {
-            "$ref": "#/components/schemas/User"
           }
         },
         "additionalProperties": false
       },
-      "Grade": {
+      "CreateQualificationRequest": {
+        "required": [
+          "qualificationName",
+          "userId"
+        ],
         "type": "object",
         "properties": {
-          "id": {
-            "type": "integer",
-            "format": "int32"
-          },
-          "gradeName": {
-            "maxLength": 100,
+          "qualificationName": {
+            "maxLength": 255,
             "minLength": 0,
-            "type": "string",
-            "nullable": true
+            "type": "string"
           },
           "description": {
             "maxLength": 255,
@@ -1529,21 +2104,49 @@
             "type": "string",
             "nullable": true
           },
-          "createdAt": {
-            "type": "string",
-            "format": "date"
-          },
-          "updatedAt": {
-            "type": "string",
-            "format": "date",
-            "nullable": true
-          },
           "userId": {
             "type": "integer",
             "format": "int32"
+          }
+        },
+        "additionalProperties": false
+      },
+      "CreateRoleRequest": {
+        "required": [
+          "roleName"
+        ],
+        "type": "object",
+        "properties": {
+          "roleName": {
+            "maxLength": 100,
+            "minLength": 0,
+            "type": "string"
           },
-          "user": {
-            "$ref": "#/components/schemas/User"
+          "description": {
+            "maxLength": 255,
+            "minLength": 0,
+            "type": "string",
+            "nullable": true
+          }
+        },
+        "additionalProperties": false
+      },
+      "CreateSkillRequest": {
+        "required": [
+          "skillName"
+        ],
+        "type": "object",
+        "properties": {
+          "skillName": {
+            "maxLength": 255,
+            "minLength": 0,
+            "type": "string"
+          },
+          "description": {
+            "maxLength": 255,
+            "minLength": 0,
+            "type": "string",
+            "nullable": true
           }
         },
         "additionalProperties": false
@@ -1556,115 +2159,7 @@
             "nullable": true
           },
           "libraryResourceId": {
-            "type": "array",
-            "items": {
-              "type": "integer",
-              "format": "int32"
-            },
-            "nullable": true
-          }
-        },
-        "additionalProperties": false
-      },
-      "LendingTransaction": {
-        "type": "object",
-        "properties": {
-          "id": {
-            "type": "integer",
-            "format": "int32"
-          },
-          "lendingDate": {
             "type": "string",
-            "format": "date"
-          },
-          "dueDate": {
-            "type": "string",
-            "format": "date"
-          },
-          "returnDate": {
-            "type": "string",
-            "format": "date",
-            "nullable": true
-          },
-          "resourceCondition": {
-            "maxLength": 255,
-            "minLength": 0,
-            "type": "string",
-            "nullable": true
-          },
-          "lendingStatus": {
-            "maxLength": 255,
-            "minLength": 0,
-            "type": "string",
-            "nullable": true
-          },
-          "isAlertIssued": {
-            "type": "boolean"
-          },
-          "createdAt": {
-            "type": "string",
-            "format": "date"
-          },
-          "updatedAt": {
-            "type": "string",
-            "format": "date",
-            "nullable": true
-          },
-          "memberId": {
-            "type": "integer",
-            "format": "int32"
-          },
-          "resourceId": {
-            "type": "integer",
-            "format": "int32"
-          },
-          "lendedBy": {
-            "type": "integer",
-            "format": "int32",
-            "nullable": true
-          },
-          "lendedByNavigation": {
-            "$ref": "#/components/schemas/User"
-          },
-          "member": {
-            "$ref": "#/components/schemas/Member"
-          }
-        },
-        "additionalProperties": false
-      },
-      "Library": {
-        "type": "object",
-        "properties": {
-          "id": {
-            "type": "integer",
-            "format": "int32"
-          },
-          "libraryName": {
-            "maxLength": 100,
-            "minLength": 0,
-            "type": "string",
-            "nullable": true
-          },
-          "libraryLocation": {
-            "maxLength": 255,
-            "minLength": 0,
-            "type": "string",
-            "nullable": true
-          },
-          "createdAt": {
-            "type": "string",
-            "format": "date"
-          },
-          "updatedAt": {
-            "type": "string",
-            "format": "date",
-            "nullable": true
-          },
-          "users": {
-            "type": "array",
-            "items": {
-              "$ref": "#/components/schemas/User"
-            },
             "nullable": true
           }
         },
@@ -1672,12 +2167,12 @@
       },
       "LoginRequest": {
         "required": [
-          "password",
-          "username"
+          "email",
+          "password"
         ],
         "type": "object",
         "properties": {
-          "username": {
+          "email": {
             "minLength": 1,
             "type": "string"
           },
@@ -1738,71 +2233,6 @@
               "$ref": "#/components/schemas/ValidationError"
             },
             "nullable": true
-          }
-        },
-        "additionalProperties": false
-      },
-      "Member": {
-        "type": "object",
-        "properties": {
-          "memberId": {
-            "type": "integer",
-            "format": "int32"
-          },
-          "firstName": {
-            "maxLength": 100,
-            "minLength": 0,
-            "type": "string",
-            "nullable": true
-          },
-          "lastName": {
-            "maxLength": 100,
-            "minLength": 0,
-            "type": "string",
-            "nullable": true
-          },
-          "email": {
-            "maxLength": 100,
-            "minLength": 0,
-            "type": "string",
-            "nullable": true
-          },
-          "phoneNumber": {
-            "maxLength": 50,
-            "minLength": 0,
-            "type": "string",
-            "nullable": true
-          },
-          "postalAddress": {
-            "maxLength": 255,
-            "minLength": 0,
-            "type": "string",
-            "nullable": true
-          },
-          "createdAt": {
-            "type": "string",
-            "format": "date"
-          },
-          "updatedAt": {
-            "type": "string",
-            "format": "date",
-            "nullable": true
-          },
-          "physicalAddress": {
-            "maxLength": 255,
-            "minLength": 0,
-            "type": "string",
-            "nullable": true
-          },
-          "lendingTransactions": {
-            "type": "array",
-            "items": {
-              "$ref": "#/components/schemas/LendingTransaction"
-            },
-            "nullable": true
-          },
-          "membership": {
-            "$ref": "#/components/schemas/Membership"
           }
         },
         "additionalProperties": false
@@ -1900,54 +2330,6 @@
         },
         "additionalProperties": false
       },
-      "Membership": {
-        "type": "object",
-        "properties": {
-          "membershipId": {
-            "maxLength": 255,
-            "minLength": 0,
-            "type": "string",
-            "nullable": true
-          },
-          "memberId": {
-            "type": "integer",
-            "format": "int32"
-          },
-          "enrollmentDate": {
-            "type": "string",
-            "format": "date"
-          },
-          "status": {
-            "maxLength": 100,
-            "minLength": 0,
-            "type": "string",
-            "nullable": true
-          },
-          "overDueCount": {
-            "type": "integer",
-            "format": "int32"
-          },
-          "preferredGenres": {
-            "maxLength": 255,
-            "minLength": 0,
-            "type": "string",
-            "nullable": true
-          },
-          "createdAt": {
-            "type": "string",
-            "format": "date"
-          },
-          "updatedAt": {
-            "type": "string",
-            "format": "date",
-            "nullable": true
-          },
-          "member": {
-            "$ref": "#/components/schemas/Member"
-          }
-        },
-        "additionalProperties": false
-      },
       "MembershipResponseDto": {
         "type": "object",
         "properties": {
@@ -1998,105 +2380,44 @@
         },
         "additionalProperties": false
       },
-      "Permission": {
+      "PermissionDto": {
         "type": "object",
         "properties": {
-          "id": {
-            "type": "integer",
-            "format": "int32"
-          },
           "permissionsName": {
-            "maxLength": 255,
-            "minLength": 0,
             "type": "string",
             "nullable": true
           },
           "description": {
-            "maxLength": 255,
-            "minLength": 0,
             "type": "string",
             "nullable": true
           },
           "createdAt": {
             "type": "string",
             "format": "date"
-          },
-          "updatedAt": {
-            "type": "string",
-            "format": "date",
-            "nullable": true
-          },
-          "rolePermissions": {
-            "type": "array",
-            "items": {
-              "$ref": "#/components/schemas/RolePermission"
-            },
-            "nullable": true
           }
         },
         "additionalProperties": false
       },
-      "ProblemDetails": {
+      "PermissionDtoResponse": {
         "type": "object",
         "properties": {
-          "type": {
-            "type": "string",
-            "nullable": true
-          },
-          "title": {
-            "type": "string",
-            "nullable": true
-          },
-          "status": {
-            "type": "integer",
-            "format": "int32",
-            "nullable": true
-          },
-          "detail": {
-            "type": "string",
-            "nullable": true
-          },
-          "instance": {
-            "type": "string",
-            "nullable": true
-          }
-        },
-        "additionalProperties": { }
-      },
-      "Qualification": {
-        "type": "object",
-        "properties": {
-          "id": {
+          "statusCode": {
             "type": "integer",
             "format": "int32"
           },
-          "qualificationName": {
-            "maxLength": 255,
-            "minLength": 0,
+          "remark": {
             "type": "string",
             "nullable": true
           },
-          "description": {
-            "maxLength": 255,
-            "minLength": 0,
-            "type": "string",
+          "data": {
+            "$ref": "#/components/schemas/PermissionDto"
+          },
+          "errors": {
+            "type": "array",
+            "items": {
+              "$ref": "#/components/schemas/ValidationError"
+            },
             "nullable": true
-          },
-          "createdAt": {
-            "type": "string",
-            "format": "date"
-          },
-          "updatedAt": {
-            "type": "string",
-            "format": "date",
-            "nullable": true
-          },
-          "userId": {
-            "type": "integer",
-            "format": "int32"
-          },
-          "user": {
-            "$ref": "#/components/schemas/User"
           }
         },
         "additionalProperties": false
@@ -2105,8 +2426,8 @@
         "type": "object",
         "properties": {
           "resourceId": {
-            "type": "integer",
-            "format": "int32"
+            "type": "string",
+            "nullable": true
           },
           "condition": {
             "type": "string",
@@ -2132,22 +2453,14 @@
         },
         "additionalProperties": false
       },
-      "Role": {
+      "RoleDto": {
         "type": "object",
         "properties": {
-          "id": {
-            "type": "integer",
-            "format": "int32"
-          },
           "roleName": {
-            "maxLength": 100,
-            "minLength": 0,
             "type": "string",
             "nullable": true
           },
           "description": {
-            "maxLength": 255,
-            "minLength": 0,
             "type": "string",
             "nullable": true
           },
@@ -2158,90 +2471,29 @@
           "updatedAt": {
             "type": "string",
             "format": "date",
-            "nullable": true
-          },
-          "rolePermissions": {
-            "type": "array",
-            "items": {
-              "$ref": "#/components/schemas/RolePermission"
-            },
-            "nullable": true
-          },
-          "users": {
-            "type": "array",
-            "items": {
-              "$ref": "#/components/schemas/User"
-            },
             "nullable": true
           }
         },
         "additionalProperties": false
       },
-      "RolePermission": {
+      "RoleDtoResponse": {
         "type": "object",
         "properties": {
-          "id": {
+          "statusCode": {
             "type": "integer",
             "format": "int32"
           },
-          "roleId": {
-            "type": "integer",
-            "format": "int32"
-          },
-          "permissionsId": {
-            "type": "integer",
-            "format": "int32"
-          },
-          "createdAt": {
-            "type": "string",
-            "format": "date"
-          },
-          "updatedAt": {
-            "type": "string",
-            "format": "date",
-            "nullable": true
-          },
-          "permissions": {
-            "$ref": "#/components/schemas/Permission"
-          },
-          "role": {
-            "$ref": "#/components/schemas/Role"
-          }
-        },
-        "additionalProperties": false
-      },
-      "Skill": {
-        "type": "object",
-        "properties": {
-          "id": {
-            "type": "integer",
-            "format": "int32"
-          },
-          "skillName": {
-            "maxLength": 255,
-            "minLength": 0,
+          "remark": {
             "type": "string",
             "nullable": true
           },
-          "description": {
-            "maxLength": 255,
-            "minLength": 0,
-            "type": "string",
-            "nullable": true
+          "data": {
+            "$ref": "#/components/schemas/RoleDto"
           },
-          "createdAt": {
-            "type": "string",
-            "format": "date"
-          },
-          "updatedAt": {
-            "type": "string",
-            "format": "date",
-            "nullable": true
-          },
-          "userSkills": {
+          "errors": {
             "type": "array",
             "items": {
-              "$ref": "#/components/schemas/UserSkill"
+              "$ref": "#/components/schemas/ValidationError"
             },
             "nullable": true
           }
@@ -2278,46 +2530,30 @@
         },
         "additionalProperties": false
       },
-      "User": {
+      "UserDetailDto": {
         "type": "object",
         "properties": {
-          "id": {
+          "userId": {
             "type": "integer",
             "format": "int32"
           },
           "username": {
-            "maxLength": 50,
-            "minLength": 0,
             "type": "string",
             "nullable": true
           },
           "firstName": {
-            "maxLength": 50,
-            "minLength": 0,
             "type": "string",
             "nullable": true
           },
           "lastName": {
-            "maxLength": 50,
-            "minLength": 0,
-            "type": "string",
-            "nullable": true
-          },
-          "passwordHash": {
-            "maxLength": 255,
-            "minLength": 0,
             "type": "string",
             "nullable": true
           },
           "email": {
-            "maxLength": 255,
-            "minLength": 0,
             "type": "string",
             "nullable": true
           },
           "phoneNumber": {
-            "maxLength": 255,
-            "minLength": 0,
             "type": "string",
             "nullable": true
           },
@@ -2326,72 +2562,63 @@
             "format": "date",
             "nullable": true
           },
-          "isPasswordExpired": {
-            "type": "boolean"
-          },
-          "lastPasswordChangeDate": {
-            "type": "string",
-            "format": "date-time",
-            "nullable": true
-          },
           "isActive": {
             "type": "boolean"
           },
-          "createdAt": {
+          "userCreatedAt": {
             "type": "string",
             "format": "date"
           },
-          "updatedAt": {
+          "libraryName": {
             "type": "string",
-            "format": "date",
             "nullable": true
           },
-          "libraryId": {
+          "roleName": {
+            "type": "string",
+            "nullable": true
+          },
+          "yearsOfExperience": {
+            "type": "integer",
+            "format": "int32",
+            "nullable": true
+          },
+          "gradeName": {
+            "type": "string",
+            "nullable": true
+          },
+          "qualificationName": {
+            "type": "string",
+            "nullable": true
+          },
+          "skillName": {
+            "type": "string",
+            "nullable": true
+          }
+        },
+        "additionalProperties": false
+      },
+      "UserDetailDtoListResponse": {
+        "type": "object",
+        "properties": {
+          "statusCode": {
             "type": "integer",
             "format": "int32"
           },
-          "roleId": {
-            "type": "integer",
-            "format": "int32"
+          "remark": {
+            "type": "string",
+            "nullable": true
           },
-          "experiences": {
+          "data": {
             "type": "array",
             "items": {
-              "$ref": "#/components/schemas/Experience"
+              "$ref": "#/components/schemas/UserDetailDto"
             },
             "nullable": true
           },
-          "grades": {
+          "errors": {
             "type": "array",
             "items": {
-              "$ref": "#/components/schemas/Grade"
-            },
-            "nullable": true
-          },
-          "lendingTransactions": {
-            "type": "array",
-            "items": {
-              "$ref": "#/components/schemas/LendingTransaction"
-            },
-            "nullable": true
-          },
-          "library": {
-            "$ref": "#/components/schemas/Library"
-          },
-          "qualifications": {
-            "type": "array",
-            "items": {
-              "$ref": "#/components/schemas/Qualification"
-            },
-            "nullable": true
-          },
-          "role": {
-            "$ref": "#/components/schemas/Role"
-          },
-          "userSkills": {
-            "type": "array",
-            "items": {
-              "$ref": "#/components/schemas/UserSkill"
+              "$ref": "#/components/schemas/ValidationError"
             },
             "nullable": true
           }
@@ -2497,46 +2724,13 @@
             "format": "date",
             "nullable": true
           },
-          "libraryId": {
-            "type": "integer",
-            "format": "int32"
-          },
-          "roleId": {
-            "type": "integer",
-            "format": "int32"
-          }
-        },
-        "additionalProperties": false
-      },
-      "UserSkill": {
-        "type": "object",
-        "properties": {
-          "id": {
-            "type": "integer",
-            "format": "int32"
-          },
-          "userId": {
-            "type": "integer",
-            "format": "int32"
-          },
-          "skillId": {
-            "type": "integer",
-            "format": "int32"
-          },
-          "createdAt": {
+          "roleName": {
             "type": "string",
-            "format": "date"
-          },
-          "updatedAt": {
-            "type": "string",
-            "format": "date",
             "nullable": true
           },
-          "skill": {
-            "$ref": "#/components/schemas/Skill"
-          },
-          "user": {
-            "$ref": "#/components/schemas/User"
+          "libraryName": {
+            "type": "string",
+            "nullable": true
           }
         },
         "additionalProperties": false
@@ -2559,6 +2753,19 @@
         },
         "additionalProperties": false
       }
+    },
+    "securitySchemes": {
+      "Bearer": {
+        "type": "apiKey",
+        "description": "Enter 'Bearer' followed by a space and the JWT token. For example: 'Bearer <your_token>'",
+        "name": "Authorization",
+        "in": "header"
+      }
     }
-  }
+  },
+  "security": [
+    {
+      "Bearer": [ ]
+    }
+  ]
 }

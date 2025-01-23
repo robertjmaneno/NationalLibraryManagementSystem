@@ -37,7 +37,8 @@ public partial class LendingTransaction
     public int MemberId { get; set; }
 
     [Column("ResourceID")]
-    public int ResourceId { get; set; }
+    [StringLength(50)]
+    public string? ResourceId { get; set; }
 
     public int? LendedBy { get; set; }
 

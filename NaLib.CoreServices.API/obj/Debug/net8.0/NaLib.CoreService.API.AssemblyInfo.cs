@@ -15,7 +15,7 @@ using System.Reflection;
 [assembly: System.Reflection.AssemblyCompanyAttribute("NaLib.CoreService.API")]
 [assembly: System.Reflection.AssemblyConfigurationAttribute("Debug")]
 [assembly: System.Reflection.AssemblyFileVersionAttribute("1.0.0.0")]
-[assembly: System.Reflection.AssemblyInformationalVersionAttribute("1.0.0+a384d91653a0b8cffcc633fc5ce23ab9733c1fcf")]
+[assembly: System.Reflection.AssemblyInformationalVersionAttribute("1.0.0+52b8f75f71627983e847a90951ad055e03e25148")]
 [assembly: System.Reflection.AssemblyProductAttribute("NaLib.CoreService.API")]
 [assembly: System.Reflection.AssemblyTitleAttribute("NaLib.CoreService.API")]
 [assembly: System.Reflection.AssemblyVersionAttribute("1.0.0.0")]

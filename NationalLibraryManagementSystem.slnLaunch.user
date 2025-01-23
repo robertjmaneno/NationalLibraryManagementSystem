@@ -1,0 +1,15 @@
+[
+  {
+    "Name": "New Profile",
+    "Projects": [
+      {
+        "Path": "NaLib.CoreServices.API\\NaLib.CoreService.API.csproj",
+        "Action": "Start"
+      },
+      {
+        "Path": "NaLib.CatalogueManagementService.API\\NaLib.CatalogueManagementService.API.csproj",
+        "Action": "Start"
+      }
+    ]
+  }
+]

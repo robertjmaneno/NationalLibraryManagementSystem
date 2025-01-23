@@ -1,0 +1,12 @@
+{
+  "Version": 1,
+  "Hash": "Li5mLk7YKBITommQBiFPTJO1CjqwNrePwAJo8CrYC/A=",
+  "Source": "NaLib.CatalogueManagementService.API",
+  "BasePath": "_content/NaLib.CatalogueManagementService.API",
+  "Mode": "Default",
+  "ManifestType": "Build",
+  "ReferencedProjectsConfiguration": [],
+  "DiscoveryPatterns": [],
+  "Assets": [],
+  "Endpoints": []
+}

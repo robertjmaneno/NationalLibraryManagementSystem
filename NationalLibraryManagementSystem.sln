@@ -7,9 +7,9 @@ Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "NaLib.CoreService.API", "Na
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "NaLib.CoreService.Lib", "NaLib.CoreService.Lib\NaLib.CoreService.Lib.csproj", "{C52F5130-C7A9-48CB-A45C-E7779021B55C}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "CatalogueManagementService.API", "CatalogueManagementService.API\CatalogueManagementService.API.csproj", "{E206C346-2086-41D7-A55E-7B5189A1B331}"
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "NaLib.CatalogueManagementService.API", "NaLib.CatalogueManagementService.API\NaLib.CatalogueManagementService.API.csproj", "{4DBD2F46-1C5F-4596-91C2-A4D60C98D898}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "CatalogueManagementService.LIb", "CatalogueManagementService.LIb\CatalogueManagementService.LIb.csproj", "{C4910007-1437-4737-B969-BD1D43612CE2}"
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "NaLib.CatalogueManagementService.Lib", "NaLib.CatalogueManagementService.Lib\NaLib.CatalogueManagementService.Lib.csproj", "{4F8885BD-B598-470D-847F-9A30FA636E65}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
@@ -25,14 +25,14 @@ Global
 		{C52F5130-C7A9-48CB-A45C-E7779021B55C}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{C52F5130-C7A9-48CB-A45C-E7779021B55C}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{C52F5130-C7A9-48CB-A45C-E7779021B55C}.Release|Any CPU.Build.0 = Release|Any CPU
-		{E206C346-2086-41D7-A55E-7B5189A1B331}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
-		{E206C346-2086-41D7-A55E-7B5189A1B331}.Debug|Any CPU.Build.0 = Debug|Any CPU
-		{E206C346-2086-41D7-A55E-7B5189A1B331}.Release|Any CPU.ActiveCfg = Release|Any CPU
-		{E206C346-2086-41D7-A55E-7B5189A1B331}.Release|Any CPU.Build.0 = Release|Any CPU
-		{C4910007-1437-4737-B969-BD1D43612CE2}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
-		{C4910007-1437-4737-B969-BD1D43612CE2}.Debug|Any CPU.Build.0 = Debug|Any CPU
-		{C4910007-1437-4737-B969-BD1D43612CE2}.Release|Any CPU.ActiveCfg = Release|Any CPU
-		{C4910007-1437-4737-B969-BD1D43612CE2}.Release|Any CPU.Build.0 = Release|Any CPU
+		{4DBD2F46-1C5F-4596-91C2-A4D60C98D898}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{4DBD2F46-1C5F-4596-91C2-A4D60C98D898}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{4DBD2F46-1C5F-4596-91C2-A4D60C98D898}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{4DBD2F46-1C5F-4596-91C2-A4D60C98D898}.Release|Any CPU.Build.0 = Release|Any CPU
+		{4F8885BD-B598-470D-847F-9A30FA636E65}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{4F8885BD-B598-470D-847F-9A30FA636E65}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{4F8885BD-B598-470D-847F-9A30FA636E65}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{4F8885BD-B598-470D-847F-9A30FA636E65}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE

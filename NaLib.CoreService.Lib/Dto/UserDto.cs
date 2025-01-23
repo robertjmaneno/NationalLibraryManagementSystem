@@ -17,6 +17,7 @@ namespace NaLib.CoreService.Lib.Dto
         public DateOnly? DateOfBirth { get; set; }
         public int LibraryId { get; set; }
         public int RoleId { get; set; }
+     
     }
 
 }

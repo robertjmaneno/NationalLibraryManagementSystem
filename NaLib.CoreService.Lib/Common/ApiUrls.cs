@@ -11,28 +11,18 @@ namespace NaLib.CoreService.Lib.Common
         
         public const string BaseUrl = "api/v1";
         public const string Member = BaseUrl + "/Member";
+        public const string StaffDetails = BaseUrl + "/StaffDetails"; 
 
         public const string Staff = BaseUrl + "/Staff";
-        public const string Roles = BaseUrl + "/Roles_And_Permissions";
+        public const string PermissionsAndRoles = BaseUrl + "/RolesAndPermissions";
         public const string login = BaseUrl + "/Login";
+        public const string UserDetails = BaseUrl + "UserDetails";
 
         public const string CreateMember = "createMember";
         public const string GetMember = "getMember";
         public const string UpdateMember= "updateMember";
         public const string DeleteMember = "deleteMember";
         public const string GetAllMembers = "getAllMembers";
-
-        // Lending Transaction Endpoints
-        public const string LendingTransaction = BaseUrl + "/LendingTransaction";
-        public const string CheckoutResources = "checkout";
-        public const string ReturnResources = "return";
-
-
-        public const string CreateStaff = "createStaff";
-        public const string GetStaff = "getSatff";
-
-        public const string CreateRole = "createRole";
-        public const string GetRole = "getRole";
 
 
         public const string Permissions = "Permissions";
@@ -42,9 +32,38 @@ namespace NaLib.CoreService.Lib.Common
         public const string UpdatePermission = "updatePermission";
 
 
-        public const string CreateRolePermission = "createRolePermission";
-        public const string GetRolePermission = "getRolePermission";
-        public const string GetRolePermissionID = "getRolePermissionById";
+        public const string CreateRole = "createRole";
+        public const string GetRole = "getRole";
+        public const string UpdateRole= "updateRole";
+        public const string GetAllRoles = "getAllRoles";
+        public const string AssignRoleToPermissions = "AssignRoleToPermissions";
+
+
+        public const string CreateSkills = "createSkills";
+        public const string CreateQualifications = "createQualifications";
+        public const string CreateGrades = "createGrades";
+        public const string CreateExperiences = "createExperience";
+        public const string AssignSkillToUser = "assignSkillToUser";
+
+
+
+        public const string LendingTransaction = BaseUrl + "/LendingTransaction";
+        public const string CheckoutResources = "checkoutResource";
+        public const string ReturnResources = "returnResource";
+
+
+
+
+        public const string CreateStaff = "createStaff";
+        public const string GetStaff = "getStaff";
+        public const string GetAllStaffs = "getAllStaffs";
+
+
+
+
+
+
+
 
         public const string UserLogin = "useLogin";
 

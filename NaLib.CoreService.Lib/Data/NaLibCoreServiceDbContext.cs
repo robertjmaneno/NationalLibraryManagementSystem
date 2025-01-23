@@ -41,7 +41,9 @@ public partial class NaLibCoreServiceDbContext : DbContext
 
     public virtual DbSet<UserSkill> UserSkills { get; set; }
 
- 
+    public virtual DbSet<VwUserDetail> VwUserDetails { get; set; }
+
+
     protected override void OnModelCreating(ModelBuilder modelBuilder)
     {
         modelBuilder.Entity<Experience>(entity =>
@@ -160,6 +162,11 @@ public partial class NaLibCoreServiceDbContext : DbContext
             entity.HasOne(d => d.Skill).WithMany(p => p.UserSkills).HasConstraintName("FK_UserSkills_Skills");
 
             entity.HasOne(d => d.User).WithMany(p => p.UserSkills).HasConstraintName("FK_UserSkills_User");
+        });
+
+        modelBuilder.Entity<VwUserDetail>(entity =>
+        {
+            entity.ToView("vw_UserDetails");
         });
 
         OnModelCreatingPartial(modelBuilder);

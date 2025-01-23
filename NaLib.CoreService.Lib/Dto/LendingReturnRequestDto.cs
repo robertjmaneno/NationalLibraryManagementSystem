@@ -8,7 +8,7 @@ namespace NaLib.CoreService.Lib.Dto
 {
     public class LendingReturnRequestDto
     {
-        public int LibraryResourceId { get; set; }
+        public string LibraryResourceId { get; set; }
         public string Condition { get; set; } 
         public int AllowedLendingDays { get; set; }
     }

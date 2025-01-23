@@ -38,7 +38,7 @@ namespace NaLib.CoreService.API.Controllers
             try
             {
                 var user = await _context.Users
-                    .SingleOrDefaultAsync(u => u.Username == loginRequest.Username);
+                    .SingleOrDefaultAsync(u => u.Email== loginRequest.Email);
 
                 if (user == null || !StaffHelpers.VerifyPassword(loginRequest.Password, user.PasswordHash))
                 {

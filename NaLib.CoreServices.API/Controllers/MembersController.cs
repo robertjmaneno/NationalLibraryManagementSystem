@@ -1,4 +1,5 @@
-﻿using Microsoft.AspNetCore.Http;
+﻿using Microsoft.AspNetCore.Authorization;
+using Microsoft.AspNetCore.Http;
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.EntityFrameworkCore;
 using NaLib.CoreService.Lib.Common;
@@ -34,6 +35,7 @@ namespace NaLib.CoreService.API.Controllers
         /// <response code="400">Validation error in the request data.</response>
         /// <response code="500">Internal server error during database operation.</response>
         [HttpPost(ApiUrls.CreateMember)]
+        [Authorize]
         [ProducesResponseType(typeof(Response<MemberWithMembershipResponseDto>), StatusCodes.Status201Created)]
         [ProducesResponseType(typeof(Response<object>), StatusCodes.Status400BadRequest)]
         [ProducesResponseType(typeof(Response<object>), StatusCodes.Status500InternalServerError)]
@@ -118,7 +120,13 @@ namespace NaLib.CoreService.API.Controllers
         /// <param name="pageSize">The number of members per page (default is 10).</param>
         /// <returns>A list of members with pagination, including membership details.</returns>
         /// <response code="200">A list of members with membership details successfully returned.</response>
+        /// 
         [HttpGet(ApiUrls.GetAllMembers)]
+        [ProducesResponseType(typeof(Response<MemberWithMembershipResponseDto>), StatusCodes.Status201Created)]
+        [ProducesResponseType(typeof(Response<object>), StatusCodes.Status400BadRequest)]
+        [ProducesResponseType(typeof(Response<object>), StatusCodes.Status500InternalServerError)]
+
+        [Authorize]
         public async Task<IActionResult> GetMembers(
             [FromQuery] int pageNumber = 1,
             [FromQuery] int pageSize = 10)

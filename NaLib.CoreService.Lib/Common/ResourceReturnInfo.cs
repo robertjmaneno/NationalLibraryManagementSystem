@@ -8,7 +8,7 @@ namespace NaLib.CoreService.Lib.Common
 {
     public class ResourceReturnInfo
     {
-        public int ResourceId { get; set; }
+        public string ResourceId { get; set; }
         public string Condition { get; set; }
     }
 }

@@ -73,9 +73,9 @@ namespace NaLib.CoreService.Lib.Utils
 
         public static class JwtTokenGenerator
         {
-            private static readonly string _secretKey = "lK9fD7kP8nXp1tWzVjAq4vM7oB2cUy9s8Kz0Gh1iNjTwY3kMzCp5Rz2eJvLwP9s";
-            private static readonly string _issuer = "LibraryManagementSystem";
-            private static readonly string _audience = "LibraryClient"; 
+            private static readonly string _secretKey = "Ngdheyejy37829!!gdghd939xghxhhnNalibdghreshjsjkgdftfstbgshsgsrjdj64";
+            private static readonly string _issuer = "NaLib";
+            private static readonly string _audience = "NaLibUsers"; 
 
             public static string GenerateToken(User user)
             {
