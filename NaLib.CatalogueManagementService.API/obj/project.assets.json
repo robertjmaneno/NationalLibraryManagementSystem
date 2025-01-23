@@ -1211,11 +1211,11 @@
   "project": {
     "version": "1.0.0",
     "restore": {
-      "projectUniqueName": "C:\\Users\\Maneno\\Documents\\NationalLibraryManagementSystem\\NaLib.CatalogueManagementService.API\\NaLib.CatalogueManagementService.API.csproj",
+      "projectUniqueName": "C:\\Users\\Maneno\\Documents\\Angle Dimension\\NationalLibraryManagementSystem\\NaLib.CatalogueManagementService.API\\NaLib.CatalogueManagementService.API.csproj",
       "projectName": "NaLib.CatalogueManagementService.API",
-      "projectPath": "C:\\Users\\Maneno\\Documents\\NationalLibraryManagementSystem\\NaLib.CatalogueManagementService.API\\NaLib.CatalogueManagementService.API.csproj",
+      "projectPath": "C:\\Users\\Maneno\\Documents\\Angle Dimension\\NationalLibraryManagementSystem\\NaLib.CatalogueManagementService.API\\NaLib.CatalogueManagementService.API.csproj",
       "packagesPath": "C:\\Users\\Maneno\\.nuget\\packages\\",
-      "outputPath": "C:\\Users\\Maneno\\Documents\\NationalLibraryManagementSystem\\NaLib.CatalogueManagementService.API\\obj\\",
+      "outputPath": "C:\\Users\\Maneno\\Documents\\Angle Dimension\\NationalLibraryManagementSystem\\NaLib.CatalogueManagementService.API\\obj\\",
       "projectStyle": "PackageReference",
       "fallbackFolders": [
         "C:\\Program Files (x86)\\Microsoft Visual Studio\\Shared\\NuGetPackages"
@@ -1236,8 +1236,8 @@
         "net8.0": {
           "targetAlias": "net8.0",
           "projectReferences": {
-            "C:\\Users\\Maneno\\Documents\\NationalLibraryManagementSystem\\NaLib.CatalogueManagementService.Lib\\NaLib.CatalogueManagementService.Lib.csproj": {
-              "projectPath": "C:\\Users\\Maneno\\Documents\\NationalLibraryManagementSystem\\NaLib.CatalogueManagementService.Lib\\NaLib.CatalogueManagementService.Lib.csproj"
+            "C:\\Users\\Maneno\\Documents\\Angle Dimension\\NationalLibraryManagementSystem\\NaLib.CatalogueManagementService.Lib\\NaLib.CatalogueManagementService.Lib.csproj": {
+              "projectPath": "C:\\Users\\Maneno\\Documents\\Angle Dimension\\NationalLibraryManagementSystem\\NaLib.CatalogueManagementService.Lib\\NaLib.CatalogueManagementService.Lib.csproj"
             }
           }
         }

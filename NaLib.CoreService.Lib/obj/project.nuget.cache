@@ -1,8 +1,8 @@
 {
   "version": 2,
-  "dgSpecHash": "RPDGgWOh7EU=",
+  "dgSpecHash": "CaSGmDPSQ+U=",
   "success": true,
-  "projectFilePath": "C:\\Users\\Maneno\\Documents\\NationalLibraryManagementSystem\\NaLib.CoreService.Lib\\NaLib.CoreService.Lib.csproj",
+  "projectFilePath": "C:\\Users\\Maneno\\Documents\\Angle Dimension\\NationalLibraryManagementSystem\\NaLib.CoreService.Lib\\NaLib.CoreService.Lib.csproj",
   "expectedPackageFiles": [
     "C:\\Users\\Maneno\\.nuget\\packages\\azure.core\\1.38.0\\azure.core.1.38.0.nupkg.sha512",
     "C:\\Users\\Maneno\\.nuget\\packages\\azure.identity\\1.11.4\\azure.identity.1.11.4.nupkg.sha512",

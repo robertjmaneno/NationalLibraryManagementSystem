@@ -439,6 +439,20 @@
             },
             "nullable": true
           },
+          "authors": {
+            "type": "array",
+            "items": {
+              "type": "string"
+            },
+            "nullable": true
+          },
+          "publishers": {
+            "type": "array",
+            "items": {
+              "type": "string"
+            },
+            "nullable": true
+          },
           "catalogedBy": {
             "type": "integer",
             "format": "int32"
@@ -466,6 +480,20 @@
             "nullable": true
           },
           "genres": {
+            "type": "array",
+            "items": {
+              "type": "string"
+            },
+            "nullable": true
+          },
+          "authors": {
+            "type": "array",
+            "items": {
+              "type": "string"
+            },
+            "nullable": true
+          },
+          "publishers": {
             "type": "array",
             "items": {
               "type": "string"
@@ -586,6 +614,20 @@
             "nullable": true
           },
           "genres": {
+            "type": "array",
+            "items": {
+              "type": "string"
+            },
+            "nullable": true
+          },
+          "authors": {
+            "type": "array",
+            "items": {
+              "type": "string"
+            },
+            "nullable": true
+          },
+          "publishers": {
             "type": "array",
             "items": {
               "type": "string"

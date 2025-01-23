@@ -32,6 +32,8 @@ namespace NaLib.CatalogueManagementService.API.Seeders
                     ResourceType = "Book",
                     Format = "Hard Copy",
                     Genres = new List<string> { "Fiction", "Classic" },
+                    Authors = new List<string> { "Fiction", "Classic" },
+                    Publishers = new List<string> { "Fiction", "Classic" },
                     CatalogedBy = 1 
                 },
                 new CreateLibraryResourceDto
@@ -40,6 +42,8 @@ namespace NaLib.CatalogueManagementService.API.Seeders
                     ResourceType = "Newspaper",
                     Format = "Electronic Copy",
                     Genres = new List<string> { "News", "Current Affairs" },
+                     Authors = new List<string> { "Fiction", "Classic" },
+                    Publishers = new List<string> { "Fiction", "Classic" },
                     CatalogedBy = 2 
                 },
                 new CreateLibraryResourceDto
@@ -48,6 +52,8 @@ namespace NaLib.CatalogueManagementService.API.Seeders
                     ResourceType = "Article",
                     Format = "Electronic Copy",
                     Genres = new List<string> { "Science", "Education" },
+                     Authors = new List<string> { "Fiction", "Classic" },
+                    Publishers = new List<string> { "Fiction", "Classic" },
                     CatalogedBy = 3
                 }
             };

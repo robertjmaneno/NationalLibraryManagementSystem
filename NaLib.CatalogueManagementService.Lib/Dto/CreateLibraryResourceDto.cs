@@ -21,6 +21,10 @@ namespace NaLib.CatalogueManagementService.Lib.Dto
 
         public List<string> Genres { get; set; } = new List<string>();
 
+        public List<string> Authors { get; set; } = new List<string>();
+
+        public List<string> Publishers { get; set; } = new List<string>();
+
         [Required]
         public int CatalogedBy { get; set; }
 

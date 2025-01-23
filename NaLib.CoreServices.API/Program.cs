@@ -42,15 +42,15 @@ builder.Services.AddAuthentication(JwtBearerDefaults.AuthenticationScheme)
 
 builder.Services.AddControllers();
 builder.Services.AddEndpointsApiExplorer();
+
 builder.Services.AddSwaggerGen(options =>
 {
     options.AddSecurityDefinition("Bearer", new Microsoft.OpenApi.Models.OpenApiSecurityScheme
     {
         In = Microsoft.OpenApi.Models.ParameterLocation.Header,
         Name = "Authorization",
-        Type = Microsoft.OpenApi.Models.SecuritySchemeType.ApiKey,
-        BearerFormat = "JWT",
-        Description = "Enter 'Bearer' followed by a space and the JWT token. For example: 'Bearer <your_token>'"
+        Type = Microsoft.OpenApi.Models.SecuritySchemeType.Http,
+        Scheme = "Bearer"
     });
 
     options.AddSecurityRequirement(new Microsoft.OpenApi.Models.OpenApiSecurityRequirement
@@ -69,6 +69,9 @@ builder.Services.AddSwaggerGen(options =>
     });
 });
 
+builder.Services.AddControllers();
+
+
 var app = builder.Build();
 
 if (app.Environment.IsDevelopment())
@@ -80,6 +83,16 @@ if (app.Environment.IsDevelopment())
 app.UseHttpsRedirection();
 
 // Use authentication and authorization
+
+app.Use(async (context, next) =>
+{
+    var accessToken = context.Request.Headers["Authorization"].FirstOrDefault();
+    if (!string.IsNullOrEmpty(accessToken) && !accessToken.StartsWith("Bearer "))
+    {
+        context.Request.Headers["Authorization"] = $"Bearer {accessToken}";
+    }
+    await next();
+});
 app.UseAuthentication();
 app.UseAuthorization();
 

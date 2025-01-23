@@ -2756,10 +2756,8 @@
     },
     "securitySchemes": {
       "Bearer": {
-        "type": "apiKey",
-        "description": "Enter 'Bearer' followed by a space and the JWT token. For example: 'Bearer <your_token>'",
-        "name": "Authorization",
-        "in": "header"
+        "type": "http",
+        "scheme": "Bearer"
       }
     }
   },

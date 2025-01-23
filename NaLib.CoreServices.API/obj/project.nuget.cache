@@ -1,8 +1,8 @@
 {
   "version": 2,
-  "dgSpecHash": "wFpZCuR64vI=",
+  "dgSpecHash": "SGQu1tXw32s=",
   "success": true,
-  "projectFilePath": "C:\\Users\\Maneno\\Documents\\NationalLibraryManagementSystem\\NaLib.CoreServices.API\\NaLib.CoreService.API.csproj",
+  "projectFilePath": "C:\\Users\\Maneno\\Documents\\Angle Dimension\\NationalLibraryManagementSystem\\NaLib.CoreServices.API\\NaLib.CoreService.API.csproj",
   "expectedPackageFiles": [
     "C:\\Users\\Maneno\\.nuget\\packages\\azure.core\\1.38.0\\azure.core.1.38.0.nupkg.sha512",
     "C:\\Users\\Maneno\\.nuget\\packages\\azure.identity\\1.11.4\\azure.identity.1.11.4.nupkg.sha512",
@@ -24,6 +24,7 @@
     "C:\\Users\\Maneno\\.nuget\\packages\\microsoft.extensions.apidescription.server\\6.0.5\\microsoft.extensions.apidescription.server.6.0.5.nupkg.sha512",
     "C:\\Users\\Maneno\\.nuget\\packages\\microsoft.extensions.caching.abstractions\\9.0.1\\microsoft.extensions.caching.abstractions.9.0.1.nupkg.sha512",
     "C:\\Users\\Maneno\\.nuget\\packages\\microsoft.extensions.caching.memory\\9.0.1\\microsoft.extensions.caching.memory.9.0.1.nupkg.sha512",
+    "C:\\Users\\Maneno\\.nuget\\packages\\microsoft.extensions.configuration\\9.0.1\\microsoft.extensions.configuration.9.0.1.nupkg.sha512",
     "C:\\Users\\Maneno\\.nuget\\packages\\microsoft.extensions.configuration.abstractions\\9.0.1\\microsoft.extensions.configuration.abstractions.9.0.1.nupkg.sha512",
     "C:\\Users\\Maneno\\.nuget\\packages\\microsoft.extensions.configuration.binder\\9.0.1\\microsoft.extensions.configuration.binder.9.0.1.nupkg.sha512",
     "C:\\Users\\Maneno\\.nuget\\packages\\microsoft.extensions.dependencyinjection\\9.0.1\\microsoft.extensions.dependencyinjection.9.0.1.nupkg.sha512",

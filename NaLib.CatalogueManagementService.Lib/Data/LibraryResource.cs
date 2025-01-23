@@ -35,6 +35,12 @@ public class LibraryResource
     [BsonElement("Genres")]
     public List<string> Genres { get; set; }
 
+    [BsonElement("Authors")]
+    public List<string> Authors { get; set; }
+
+    [BsonElement("Publishers")]
+    public List<string> Publishers { get; set; }
+
     [BsonElement("IsBorrowable")]
     public bool IsBorrowable { get; set; }
 

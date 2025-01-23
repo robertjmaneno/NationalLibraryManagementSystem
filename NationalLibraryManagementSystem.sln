@@ -11,6 +11,10 @@ Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "NaLib.CatalogueManagementSe
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "NaLib.CatalogueManagementService.Lib", "NaLib.CatalogueManagementService.Lib\NaLib.CatalogueManagementService.Lib.csproj", "{4F8885BD-B598-470D-847F-9A30FA636E65}"
 EndProject
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "NaLib.ProjectFiles", "NaLib.ProjectFiles", "{C211B683-FB41-4709-BA86-4A75B87D8D7D}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "NaLib.Web", "NaLib.Web\NaLib.Web.csproj", "{A1882ABD-1AE1-4984-BD41-4A4451EB5CE6}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -33,6 +37,10 @@ Global
 		{4F8885BD-B598-470D-847F-9A30FA636E65}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{4F8885BD-B598-470D-847F-9A30FA636E65}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{4F8885BD-B598-470D-847F-9A30FA636E65}.Release|Any CPU.Build.0 = Release|Any CPU
+		{A1882ABD-1AE1-4984-BD41-4A4451EB5CE6}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{A1882ABD-1AE1-4984-BD41-4A4451EB5CE6}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{A1882ABD-1AE1-4984-BD41-4A4451EB5CE6}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{A1882ABD-1AE1-4984-BD41-4A4451EB5CE6}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE

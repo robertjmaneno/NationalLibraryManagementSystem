@@ -11,3 +11,16 @@ C:\Users\Maneno\Documents\NationalLibraryManagementSystem\NaLib.CatalogueManagem
 C:\Users\Maneno\Documents\NationalLibraryManagementSystem\NaLib.CatalogueManagementService.Lib\obj\Debug\net8.0\refint\NaLib.CatalogueManagementService.Lib.dll
 C:\Users\Maneno\Documents\NationalLibraryManagementSystem\NaLib.CatalogueManagementService.Lib\obj\Debug\net8.0\NaLib.CatalogueManagementService.Lib.pdb
 C:\Users\Maneno\Documents\NationalLibraryManagementSystem\NaLib.CatalogueManagementService.Lib\obj\Debug\net8.0\ref\NaLib.CatalogueManagementService.Lib.dll
+C:\Users\Maneno\Documents\Angle Dimension\NationalLibraryManagementSystem\NaLib.CatalogueManagementService.Lib\bin\Debug\net8.0\NaLib.CatalogueManagementService.Lib.deps.json
+C:\Users\Maneno\Documents\Angle Dimension\NationalLibraryManagementSystem\NaLib.CatalogueManagementService.Lib\bin\Debug\net8.0\NaLib.CatalogueManagementService.Lib.dll
+C:\Users\Maneno\Documents\Angle Dimension\NationalLibraryManagementSystem\NaLib.CatalogueManagementService.Lib\bin\Debug\net8.0\NaLib.CatalogueManagementService.Lib.pdb
+C:\Users\Maneno\Documents\Angle Dimension\NationalLibraryManagementSystem\NaLib.CatalogueManagementService.Lib\obj\Debug\net8.0\NaLib.CatalogueManagementService.Lib.csproj.AssemblyReference.cache
+C:\Users\Maneno\Documents\Angle Dimension\NationalLibraryManagementSystem\NaLib.CatalogueManagementService.Lib\obj\Debug\net8.0\NaLib.CatalogueManagementService.Lib.GeneratedMSBuildEditorConfig.editorconfig
+C:\Users\Maneno\Documents\Angle Dimension\NationalLibraryManagementSystem\NaLib.CatalogueManagementService.Lib\obj\Debug\net8.0\NaLib.CatalogueManagementService.Lib.AssemblyInfoInputs.cache
+C:\Users\Maneno\Documents\Angle Dimension\NationalLibraryManagementSystem\NaLib.CatalogueManagementService.Lib\obj\Debug\net8.0\NaLib.CatalogueManagementService.Lib.AssemblyInfo.cs
+C:\Users\Maneno\Documents\Angle Dimension\NationalLibraryManagementSystem\NaLib.CatalogueManagementService.Lib\obj\Debug\net8.0\NaLib.CatalogueManagementService.Lib.csproj.CoreCompileInputs.cache
+C:\Users\Maneno\Documents\Angle Dimension\NationalLibraryManagementSystem\NaLib.CatalogueManagementService.Lib\obj\Debug\net8.0\NaLib.CatalogueManagementService.Lib.sourcelink.json
+C:\Users\Maneno\Documents\Angle Dimension\NationalLibraryManagementSystem\NaLib.CatalogueManagementService.Lib\obj\Debug\net8.0\NaLib.CatalogueManagementService.Lib.dll
+C:\Users\Maneno\Documents\Angle Dimension\NationalLibraryManagementSystem\NaLib.CatalogueManagementService.Lib\obj\Debug\net8.0\refint\NaLib.CatalogueManagementService.Lib.dll
+C:\Users\Maneno\Documents\Angle Dimension\NationalLibraryManagementSystem\NaLib.CatalogueManagementService.Lib\obj\Debug\net8.0\NaLib.CatalogueManagementService.Lib.pdb
+C:\Users\Maneno\Documents\Angle Dimension\NationalLibraryManagementSystem\NaLib.CatalogueManagementService.Lib\obj\Debug\net8.0\ref\NaLib.CatalogueManagementService.Lib.dll

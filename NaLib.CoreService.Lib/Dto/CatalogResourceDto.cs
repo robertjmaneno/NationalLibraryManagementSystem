@@ -18,6 +18,12 @@ namespace NaLib.CoreService.Lib.Dto
         [JsonPropertyName("genres")]
         public List<string> Genres { get; set; } = new List<string>();
 
+        [JsonPropertyName("authors")]
+        public List<string> Authors { get; set; } = new List<string>();
+
+        [JsonPropertyName("publishers")]
+        public List<string> Publishers { get; set; } = new List<string>();
+
         [JsonPropertyName("isBorrowable")]
         public bool IsBorrowable { get; set; }
 
