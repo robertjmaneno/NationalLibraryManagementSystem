@@ -41,7 +41,6 @@ The ERD provides insights into how entities are related within the National Libr
 ### National Library Core Service Data Model
 - *[View Data Model](https://online.visual-paradigm.com/w/ykbksizl/diagrams/#G1pQJ_pdzKNv7OzU-sRa4RL-OtqN0n3zuv)*
 ### Catalogue Management Service Data Collection
-```json
 {
   "_id": "ObjectId",
   "Id": "string",
@@ -58,6 +57,10 @@ The ERD provides insights into how entities are related within the National Libr
   "authors": ["string"],
   "publishers": ["string"]
 }
+
+
+
+
 # Services
 
 ## National Library Core Service
