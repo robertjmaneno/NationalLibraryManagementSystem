@@ -61,52 +61,62 @@ The ERD provides insights into how entities are related within the National Libr
 
 
 
-# Services
+# National Library Core Service
 
-## National Library Core Service
+## Setup
 
-### Setup
-- Ensure MS SQL Server is running locally.
-- Populate sample data from the provided database file.
-- Import the database in SQL Server using `NationalLibraryCoreServiceDb.bacpac`.
+1. Ensure **MS SQL Server** is running locally.
+2. Populate sample data from the provided database file.
+3. Import the database in SQL Server using `NationalLibraryCoreServiceDb.bacpac`.
 
-### Authentication
-- Authenticate using a JWT token.
-- Example credentials:
-  - **Email:** rmaneno@gmail.com
-  - **Password:** Maneno@265
+## Authentication
 
-### Features
-- **CRUD operations for staff:** Add, update, view, and delete staff records.
-- **CRUD operations for staff details:** Manage individual staff information.
-- **User management:** Handle users and their roles.
-- **Membership management:** Manage library memberships.
-- **Lending transactions:**
+- **JWT Token Authentication**:  
+  All endpoints are protected and require a valid **JWT token** for access, except for the **User Creation** endpoint, which is publicly accessible. This allows for secure access control across the system.
+  
+- **Creating Users**:  
+  The **User Creation** endpoint is publicly accessible, meaning anyone can create a user account. However, when creating a new user, the **Role Name** and **Library Name** must match exactly with those stored in the database to ensure consistency and prevent errors.  
+  If the provided role name or library name does not match the database records, the user creation request will be rejected.
+
+- **Role and Library Name Validation**:  
+  The **Role Name** and **Library Name** for each user are validated against the existing data in the database. The creation request will be rejected if the provided names do not match exactly with those stored in the database.
+
+- **Staff Management**:  
+  CRUD operations for **staff details** (Add, Update, View, Delete) are protected by **JWT authentication**. Only authorized users with the necessary roles can perform these operations. This ensures the security and integrity of staff records.
+
+## Features
+
+### National Library Core Service
+
+- **CRUD operations for staff**: Add, update, view, and delete staff records.
+- **CRUD operations for staff details**: Manage individual staff information.
+- **User management**: Handle users and their roles.
+- **Membership management**: Manage library memberships.
+- **Lending transactions**:
   - Validates membership.
-  - Checks resource availability via the Catalogue Management Service.
+  - Checks resource availability via the **Catalogue Management Service**.
+  - Updates the **Catalogue Management Service** to reflect resource checkout and return, ensuring accurate tracking of resource availability.
+  - **Checkout of Resources**: Allows users to checkout resources (e.g., books, magazines) from the library. The resource status is updated to "Checked Out" in the catalogue, and the user’s transaction is recorded.
+  - **Return Transactions**: Tracks when a user returns a resource, updating its status in the catalogue to "Available" again.
+  - **Tracking Lending Behavior**: Tracks the lending behavior of users, such as the frequency of checkouts, overdue resources, and resource history. This data can be used for monitoring user activity and identifying lending patterns.
 
-## Catalogue Management Service
+### Catalogue Management Service
 
-### Features
-- **CRUD operations for catalog resources:** Add, update, view, and delete catalog items.
-- **Resource tracking:** Track the availability and status of library resources.
-- **Integration with Core Service:** Shares resource data with the National Library Core Service.
-
-### Tools
-- **Swagger:**
-  - Provides API documentation.
-  - Enables testing endpoints directly in the browser.
+- **CRUD operations for catalog resources**: Add, update, view, and delete catalog items.
+- **Resource tracking**: Track the availability and status of library resources.
+- **Integration with Core Service**: Shares resource data with the **National Library Core Service**.
 
 ## Tools and Technologies Used
 
 ### Backend
-- ASP.NET Core 8
-- MongoDB
-- MS SQL Server
 
-### Frontend
-- Swagger (for API documentation and testing)
+- **ASP.NET Core 8**
+- **MongoDB**
+- **MS SQL Server**
+
+
+- **Swagger** (for API documentation and testing)
 
 ### Authentication
-- JWT Tokens
 
+- **JWT Tokens** for secure access to protected endpoints
