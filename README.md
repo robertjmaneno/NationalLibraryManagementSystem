@@ -96,9 +96,9 @@ The ERD provides insights into how entities are related within the National Libr
   - Validates membership.
   - Checks resource availability via the **Catalogue Management Service**.
   - Updates the **Catalogue Management Service** to reflect resource checkout and return, ensuring accurate tracking of resource availability.
-  - **Checkout of Resources**: Allows users to checkout resources (e.g., books, magazines) from the library. The resource status is updated to "Checked Out" in the catalogue, and the user’s transaction is recorded.
+  - **Checkout of Resources**: Allows users to checkout resources (e.g., books, magazines) from the library. The resource status is updated to "Borrowed" in the catalogue, and the user’s transaction is recorded.
   - **Return Transactions**: Tracks when a user returns a resource, updating its status in the catalogue to "Available" again.
-  - **Tracking Lending Behavior**: Tracks the lending behavior of users, such as the frequency of checkouts, overdue resources, and resource history. This data can be used for monitoring user activity and identifying lending patterns.
+  - **Tracking Lending Behavior**: Tracks the lending behavior of users, such as , overdue resources, and lending preferences. 
 
 ### Catalogue Management Service
 
