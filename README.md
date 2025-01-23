@@ -58,23 +58,52 @@ The ERD provides insights into how entities are related within the National Libr
   "authors": ["string"],
   "publishers": ["string"]
 }
-## System Architecture
-###  National Library Core Service
-Setup
-Ensure MS SQL Server is running locally.
-Populate sample data from the database file.
-Import the database in SQL Server using NationalLibraryCoreServiceDb.
-Authentication
-Authenticate using JWT token.
-Login with rmaneno@gmail.com and password Maneno@265.
-Features
-CRUD operations for staffs.
-CRUD operations for staff details.
-User management.
-Membership management.
-Lending transactions (validates membership and resource availability through the Catalogue Management Service).
-Catalogue Management Service
-CRUD operations for catalogue resources.
-Track resources and send data to the National Library Core Service.
-Tools
-Swagger: Used for API documentation and testin
+# Services
+
+## National Library Core Service
+
+### Setup
+- Ensure MS SQL Server is running locally.
+- Populate sample data from the provided database file.
+- Import the database in SQL Server using `NationalLibraryCoreServiceDb.bacpac`.
+
+### Authentication
+- Authenticate using a JWT token.
+- Example credentials:
+  - **Email:** rmaneno@gmail.com
+  - **Password:** Maneno@265
+
+### Features
+- **CRUD operations for staff:** Add, update, view, and delete staff records.
+- **CRUD operations for staff details:** Manage individual staff information.
+- **User management:** Handle users and their roles.
+- **Membership management:** Manage library memberships.
+- **Lending transactions:**
+  - Validates membership.
+  - Checks resource availability via the Catalogue Management Service.
+
+## Catalogue Management Service
+
+### Features
+- **CRUD operations for catalog resources:** Add, update, view, and delete catalog items.
+- **Resource tracking:** Track the availability and status of library resources.
+- **Integration with Core Service:** Shares resource data with the National Library Core Service.
+
+### Tools
+- **Swagger:**
+  - Provides API documentation.
+  - Enables testing endpoints directly in the browser.
+
+## Tools and Technologies Used
+
+### Backend
+- ASP.NET Core 8
+- MongoDB
+- MS SQL Server
+
+### Frontend
+- Swagger (for API documentation and testing)
+
+### Authentication
+- JWT Tokens
+
