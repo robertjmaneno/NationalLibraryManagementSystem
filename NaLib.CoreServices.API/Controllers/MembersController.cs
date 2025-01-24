@@ -35,7 +35,7 @@ namespace NaLib.CoreService.API.Controllers
         /// <response code="400">Validation error in the request data.</response>
         /// <response code="500">Internal server error during database operation.</response>
         [HttpPost(ApiUrls.CreateMember)]
-        [Authorize]
+       
         [ProducesResponseType(typeof(Response<MemberWithMembershipResponseDto>), StatusCodes.Status201Created)]
         [ProducesResponseType(typeof(Response<object>), StatusCodes.Status400BadRequest)]
         [ProducesResponseType(typeof(Response<object>), StatusCodes.Status500InternalServerError)]
@@ -187,6 +187,8 @@ namespace NaLib.CoreService.API.Controllers
         [ProducesResponseType(typeof(Response<object>), StatusCodes.Status400BadRequest)]
         [ProducesResponseType(typeof(Response<object>), StatusCodes.Status404NotFound)]
         [ProducesResponseType(typeof(Response<object>), StatusCodes.Status500InternalServerError)]
+
+        [Authorize]
         public async Task<IActionResult> UpdateMember(int id, [FromBody] UpdateMemberRequest request)
         {
             if (!ModelState.IsValid)
@@ -258,6 +260,8 @@ namespace NaLib.CoreService.API.Controllers
         [ProducesResponseType(typeof(Response<List<MemberWithMembershipResponseDto>>), StatusCodes.Status200OK)]
         [ProducesResponseType(typeof(Response<object>), StatusCodes.Status400BadRequest)]
         [ProducesResponseType(typeof(Response<object>), StatusCodes.Status404NotFound)]
+
+        [Authorize]
         public async Task<IActionResult> SearchMembers(
             [FromQuery] string? firstName,
             [FromQuery] string? lastName,
@@ -331,6 +335,7 @@ namespace NaLib.CoreService.API.Controllers
         [ProducesResponseType(typeof(Response<object>), StatusCodes.Status200OK)]
         [ProducesResponseType(typeof(Response<object>), StatusCodes.Status404NotFound)]
         [ProducesResponseType(typeof(Response<object>), StatusCodes.Status500InternalServerError)]
+        [Authorize]
         public async Task<IActionResult> DeleteMember(int id)
         {
             var member = await _context.Members

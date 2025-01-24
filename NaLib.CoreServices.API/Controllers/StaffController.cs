@@ -7,6 +7,7 @@ using System.Threading.Tasks;
 using NaLib.CoreService.Lib.Dto;
 using NaLib.CoreService.Lib.Utils;
 using Microsoft.EntityFrameworkCore;
+using Microsoft.AspNetCore.Authorization;
 
 namespace NaLib.CoreService.API.Controllers
 {
@@ -124,6 +125,7 @@ namespace NaLib.CoreService.API.Controllers
         [HttpGet(ApiUrls.GetAllStaffs)]
         [ProducesResponseType(typeof(Response<List<UserDetailDto>>), StatusCodes.Status200OK)]
         [ProducesResponseType(typeof(Response<object>), StatusCodes.Status500InternalServerError)]
+        [Authorize]
         public async Task<IActionResult> GetAllUsers()
         {
             try
@@ -183,6 +185,8 @@ namespace NaLib.CoreService.API.Controllers
         [HttpGet(ApiUrls.GetStaff)]
         [ProducesResponseType(typeof(Response<UserDto>), StatusCodes.Status200OK)]
         [ProducesResponseType(typeof(Response<object>), StatusCodes.Status404NotFound)]
+
+        [Authorize]
         public async Task<IActionResult> GetUserById(int id)
         {
             try

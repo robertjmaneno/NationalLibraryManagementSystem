@@ -1,4 +1,5 @@
-﻿using Microsoft.AspNetCore.Http;
+﻿using Microsoft.AspNetCore.Authorization;
+using Microsoft.AspNetCore.Http;
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.EntityFrameworkCore;
 using NaLib.CoreService.Lib.Common;
@@ -32,6 +33,8 @@ namespace NaLib.CoreService.API.Controllers
         [ProducesResponseType(typeof(Response<object>), StatusCodes.Status201Created)]
         [ProducesResponseType(typeof(Response<object>), StatusCodes.Status400BadRequest)]
         [ProducesResponseType(typeof(Response<object>), StatusCodes.Status500InternalServerError)]
+
+        [Authorize]
         public async Task<IActionResult> CreateSkill([FromBody] CreateSkillRequest request)
         {
             if (!ModelState.IsValid)
@@ -79,6 +82,8 @@ namespace NaLib.CoreService.API.Controllers
         [ProducesResponseType(typeof(Response<object>), StatusCodes.Status201Created)]
         [ProducesResponseType(typeof(Response<object>), StatusCodes.Status400BadRequest)]
         [ProducesResponseType(typeof(Response<object>), StatusCodes.Status500InternalServerError)]
+
+        [Authorize]
         public async Task<IActionResult> CreateGrade([FromBody] CreateGradeRequest request)
         {
             if (!ModelState.IsValid)

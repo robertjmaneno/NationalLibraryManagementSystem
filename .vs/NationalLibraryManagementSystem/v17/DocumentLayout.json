@@ -1,0 +1,109 @@
+{
+  "Version": 1,
+  "WorkspaceRootPath": "C:\\Users\\Maneno\\Pictures\\NationalLibraryManagementSystem\\",
+  "Documents": [
+    {
+      "AbsoluteMoniker": "D:0:0:{410B6941-E32B-4CAB-95AE-5FA72927F394}|NaLib.CoreServices.API\\NaLib.CoreService.API.csproj|c:\\users\\maneno\\pictures\\nationallibrarymanagementsystem\\nalib.coreservices.api\\controllers\\staffdetailscontroller.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{410B6941-E32B-4CAB-95AE-5FA72927F394}|NaLib.CoreServices.API\\NaLib.CoreService.API.csproj|solutionrelative:nalib.coreservices.api\\controllers\\staffdetailscontroller.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{4DBD2F46-1C5F-4596-91C2-A4D60C98D898}|NaLib.CatalogueManagementService.API\\NaLib.CatalogueManagementService.API.csproj|c:\\users\\maneno\\pictures\\nationallibrarymanagementsystem\\nalib.cataloguemanagementservice.api\\controllers\\librarycataloguecontroller.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{4DBD2F46-1C5F-4596-91C2-A4D60C98D898}|NaLib.CatalogueManagementService.API\\NaLib.CatalogueManagementService.API.csproj|solutionrelative:nalib.cataloguemanagementservice.api\\controllers\\librarycataloguecontroller.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{410B6941-E32B-4CAB-95AE-5FA72927F394}|NaLib.CoreServices.API\\NaLib.CoreService.API.csproj|c:\\users\\maneno\\pictures\\nationallibrarymanagementsystem\\nalib.coreservices.api\\controllers\\staffcontroller.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{410B6941-E32B-4CAB-95AE-5FA72927F394}|NaLib.CoreServices.API\\NaLib.CoreService.API.csproj|solutionrelative:nalib.coreservices.api\\controllers\\staffcontroller.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{410B6941-E32B-4CAB-95AE-5FA72927F394}|NaLib.CoreServices.API\\NaLib.CoreService.API.csproj|c:\\users\\maneno\\pictures\\nationallibrarymanagementsystem\\nalib.coreservices.api\\controllers\\rolesandpermissionscontroller.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{410B6941-E32B-4CAB-95AE-5FA72927F394}|NaLib.CoreServices.API\\NaLib.CoreService.API.csproj|solutionrelative:nalib.coreservices.api\\controllers\\rolesandpermissionscontroller.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{410B6941-E32B-4CAB-95AE-5FA72927F394}|NaLib.CoreServices.API\\NaLib.CoreService.API.csproj|c:\\users\\maneno\\pictures\\nationallibrarymanagementsystem\\nalib.coreservices.api\\controllers\\memberscontroller.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{410B6941-E32B-4CAB-95AE-5FA72927F394}|NaLib.CoreServices.API\\NaLib.CoreService.API.csproj|solutionrelative:nalib.coreservices.api\\controllers\\memberscontroller.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    }
+  ],
+  "DocumentGroupContainers": [
+    {
+      "Orientation": 0,
+      "VerticalTabListWidth": 256,
+      "DocumentGroups": [
+        {
+          "DockedWidth": 200,
+          "SelectedChildIndex": 2,
+          "Children": [
+            {
+              "$type": "Bookmark",
+              "Name": "ST:0:0:{1c4feeaa-4718-4aa9-859d-94ce25d182ba}"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 1,
+              "Title": "LibraryCatalogueController.cs",
+              "DocumentMoniker": "C:\\Users\\Maneno\\Pictures\\NationalLibraryManagementSystem\\NaLib.CatalogueManagementService.API\\Controllers\\LibraryCatalogueController.cs",
+              "RelativeDocumentMoniker": "NaLib.CatalogueManagementService.API\\Controllers\\LibraryCatalogueController.cs",
+              "ToolTip": "C:\\Users\\Maneno\\Pictures\\NationalLibraryManagementSystem\\NaLib.CatalogueManagementService.API\\Controllers\\LibraryCatalogueController.cs",
+              "RelativeToolTip": "NaLib.CatalogueManagementService.API\\Controllers\\LibraryCatalogueController.cs",
+              "ViewState": "AgIAAO0AAAAAAAAAAAAswNUAAAATAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2025-01-24T01:44:33.687Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 0,
+              "Title": "StaffDetailsController.cs",
+              "DocumentMoniker": "C:\\Users\\Maneno\\Pictures\\NationalLibraryManagementSystem\\NaLib.CoreServices.API\\Controllers\\StaffDetailsController.cs",
+              "RelativeDocumentMoniker": "NaLib.CoreServices.API\\Controllers\\StaffDetailsController.cs",
+              "ToolTip": "C:\\Users\\Maneno\\Pictures\\NationalLibraryManagementSystem\\NaLib.CoreServices.API\\Controllers\\StaffDetailsController.cs",
+              "RelativeToolTip": "NaLib.CoreServices.API\\Controllers\\StaffDetailsController.cs",
+              "ViewState": "AgIAAH4AAAAAAAAAAAAgwFUAAAATAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2025-01-24T01:43:53.825Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 2,
+              "Title": "StaffController.cs",
+              "DocumentMoniker": "C:\\Users\\Maneno\\Pictures\\NationalLibraryManagementSystem\\NaLib.CoreServices.API\\Controllers\\StaffController.cs",
+              "RelativeDocumentMoniker": "NaLib.CoreServices.API\\Controllers\\StaffController.cs",
+              "ToolTip": "C:\\Users\\Maneno\\Pictures\\NationalLibraryManagementSystem\\NaLib.CoreServices.API\\Controllers\\StaffController.cs",
+              "RelativeToolTip": "NaLib.CoreServices.API\\Controllers\\StaffController.cs",
+              "ViewState": "AgIAALQAAAAAAAAAAAAgwLwAAAATAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2025-01-24T01:43:34.859Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 3,
+              "Title": "RolesAndPermissionsController.cs",
+              "DocumentMoniker": "C:\\Users\\Maneno\\Pictures\\NationalLibraryManagementSystem\\NaLib.CoreServices.API\\Controllers\\RolesAndPermissionsController.cs",
+              "RelativeDocumentMoniker": "NaLib.CoreServices.API\\Controllers\\RolesAndPermissionsController.cs",
+              "ToolTip": "C:\\Users\\Maneno\\Pictures\\NationalLibraryManagementSystem\\NaLib.CoreServices.API\\Controllers\\RolesAndPermissionsController.cs",
+              "RelativeToolTip": "NaLib.CoreServices.API\\Controllers\\RolesAndPermissionsController.cs",
+              "ViewState": "AgIAAIcAAAAAAAAAAAAgwJAAAAATAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2025-01-24T01:43:13.466Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 4,
+              "Title": "MembersController.cs",
+              "DocumentMoniker": "C:\\Users\\Maneno\\Pictures\\NationalLibraryManagementSystem\\NaLib.CoreServices.API\\Controllers\\MembersController.cs",
+              "RelativeDocumentMoniker": "NaLib.CoreServices.API\\Controllers\\MembersController.cs",
+              "ToolTip": "C:\\Users\\Maneno\\Pictures\\NationalLibraryManagementSystem\\NaLib.CoreServices.API\\Controllers\\MembersController.cs",
+              "RelativeToolTip": "NaLib.CoreServices.API\\Controllers\\MembersController.cs",
+              "ViewState": "AgIAAPoAAAAAAAAAAAAkwAcBAAATAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2025-01-24T01:42:14.258Z",
+              "EditorCaption": ""
+            }
+          ]
+        }
+      ]
+    }
+  ]
+}

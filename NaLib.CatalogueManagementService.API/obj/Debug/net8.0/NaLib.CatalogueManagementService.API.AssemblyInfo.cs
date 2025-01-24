@@ -14,7 +14,7 @@ using System.Reflection;
 [assembly: System.Reflection.AssemblyCompanyAttribute("NaLib.CatalogueManagementService.API")]
 [assembly: System.Reflection.AssemblyConfigurationAttribute("Debug")]
 [assembly: System.Reflection.AssemblyFileVersionAttribute("1.0.0.0")]
-[assembly: System.Reflection.AssemblyInformationalVersionAttribute("1.0.0+c0fd578c7b26449cec45a1432315593b5494a1b5")]
+[assembly: System.Reflection.AssemblyInformationalVersionAttribute("1.0.0+5d2812615e143271f76e719751011c6bdbdfa28e")]
 [assembly: System.Reflection.AssemblyProductAttribute("NaLib.CatalogueManagementService.API")]
 [assembly: System.Reflection.AssemblyTitleAttribute("NaLib.CatalogueManagementService.API")]
 [assembly: System.Reflection.AssemblyVersionAttribute("1.0.0.0")]

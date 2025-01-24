@@ -756,11 +756,11 @@
   "project": {
     "version": "1.0.0",
     "restore": {
-      "projectUniqueName": "C:\\Users\\Maneno\\Documents\\Angle Dimension\\NationalLibraryManagementSystem\\NaLib.CatalogueManagementService.Lib\\NaLib.CatalogueManagementService.Lib.csproj",
+      "projectUniqueName": "C:\\Users\\Maneno\\Pictures\\NationalLibraryManagementSystem\\NaLib.CatalogueManagementService.Lib\\NaLib.CatalogueManagementService.Lib.csproj",
       "projectName": "NaLib.CatalogueManagementService.Lib",
-      "projectPath": "C:\\Users\\Maneno\\Documents\\Angle Dimension\\NationalLibraryManagementSystem\\NaLib.CatalogueManagementService.Lib\\NaLib.CatalogueManagementService.Lib.csproj",
+      "projectPath": "C:\\Users\\Maneno\\Pictures\\NationalLibraryManagementSystem\\NaLib.CatalogueManagementService.Lib\\NaLib.CatalogueManagementService.Lib.csproj",
       "packagesPath": "C:\\Users\\Maneno\\.nuget\\packages\\",
-      "outputPath": "C:\\Users\\Maneno\\Documents\\Angle Dimension\\NationalLibraryManagementSystem\\NaLib.CatalogueManagementService.Lib\\obj\\",
+      "outputPath": "C:\\Users\\Maneno\\Pictures\\NationalLibraryManagementSystem\\NaLib.CatalogueManagementService.Lib\\obj\\",
       "projectStyle": "PackageReference",
       "fallbackFolders": [
         "C:\\Program Files (x86)\\Microsoft Visual Studio\\Shared\\NuGetPackages"

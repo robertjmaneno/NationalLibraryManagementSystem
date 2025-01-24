@@ -5,6 +5,7 @@ using NaLib.CatalogueManagementService.API.Services;
 using NaLib.CatalogueManagementService.Lib.Dto;
 using NaLib.CatalogueManagementService.API.Extensions;
 using NaLib.CatalogueManagementService.Lib.Common;
+using Microsoft.AspNetCore.Authorization;
 
 namespace NaLib.CatalogueManagementService.API.Controllers
 {
@@ -30,6 +31,8 @@ namespace NaLib.CatalogueManagementService.API.Controllers
         [HttpGet(ApiUrls.getAllLibraryResources)]
         [ProducesResponseType(typeof(Response<List<LibraryResourceDto>>), StatusCodes.Status200OK)]
         [ProducesResponseType(typeof(Response<object>), StatusCodes.Status500InternalServerError)]
+
+        [Authorize]
         public async Task<IActionResult> GetAll()
         {
             try
@@ -60,6 +63,8 @@ namespace NaLib.CatalogueManagementService.API.Controllers
         [ProducesResponseType(typeof(CreateLibraryResourceDto), StatusCodes.Status201Created)]
         [ProducesResponseType(typeof(object), StatusCodes.Status400BadRequest)]
         [ProducesResponseType(typeof(object), StatusCodes.Status500InternalServerError)]
+
+        [Authorize]
         public async Task<IActionResult> Create([FromBody] CreateLibraryResourceDto resourceDto)
         {
             if (!ModelState.IsValid)
@@ -103,6 +108,8 @@ namespace NaLib.CatalogueManagementService.API.Controllers
         [ProducesResponseType(typeof(Response<LibraryResourceDto>), StatusCodes.Status200OK)]
         [ProducesResponseType(typeof(Response<object>), StatusCodes.Status404NotFound)]
         [ProducesResponseType(typeof(Response<object>), StatusCodes.Status500InternalServerError)]
+
+        [Authorize]
         public async Task<IActionResult> GetById(string id)
         {
             try
@@ -155,6 +162,7 @@ namespace NaLib.CatalogueManagementService.API.Controllers
         [ProducesResponseType(typeof(Response<object>), StatusCodes.Status400BadRequest)]
         [ProducesResponseType(typeof(Response<object>), StatusCodes.Status404NotFound)]
         [ProducesResponseType(typeof(Response<object>), StatusCodes.Status500InternalServerError)]
+        [Authorize]
         public async Task<IActionResult> Update(string id, [FromBody] UpdateLibraryResourceDto resourceDto)
         {
             if (!ObjectId.TryParse(id, out ObjectId objectId))
@@ -202,6 +210,8 @@ namespace NaLib.CatalogueManagementService.API.Controllers
         [ProducesResponseType(typeof(Response<object>), StatusCodes.Status400BadRequest)]
         [ProducesResponseType(typeof(Response<object>), StatusCodes.Status404NotFound)]
         [ProducesResponseType(typeof(Response<object>), StatusCodes.Status500InternalServerError)]
+
+        [Authorize]
         public async Task<IActionResult> Delete(string id)
         {
             if (!ObjectId.TryParse(id, out ObjectId objectId))

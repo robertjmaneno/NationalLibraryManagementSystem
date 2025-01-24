@@ -1,8 +1,8 @@
 {
   "version": 2,
-  "dgSpecHash": "ofwe36nd5+E=",
+  "dgSpecHash": "u29GxofUsfk=",
   "success": true,
-  "projectFilePath": "C:\\Users\\Maneno\\Documents\\Angle Dimension\\NationalLibraryManagementSystem\\NaLib.CatalogueManagementService.API\\NaLib.CatalogueManagementService.API.csproj",
+  "projectFilePath": "C:\\Users\\Maneno\\Pictures\\NationalLibraryManagementSystem\\NaLib.CatalogueManagementService.API\\NaLib.CatalogueManagementService.API.csproj",
   "expectedPackageFiles": [
     "C:\\Users\\Maneno\\.nuget\\packages\\automapper\\13.0.1\\automapper.13.0.1.nupkg.sha512",
     "C:\\Users\\Maneno\\.nuget\\packages\\dnsclient\\1.6.1\\dnsclient.1.6.1.nupkg.sha512",

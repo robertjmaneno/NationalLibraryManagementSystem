@@ -1,4 +1,5 @@
-﻿using Microsoft.AspNetCore.Http;
+﻿using Microsoft.AspNetCore.Authorization;
+using Microsoft.AspNetCore.Http;
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.EntityFrameworkCore;
 using NaLib.CoreService.Lib.Common;
@@ -35,6 +36,7 @@ namespace NaLib.CoreService.API.Controllers
         [ProducesResponseType(typeof(Response<RoleDto>), StatusCodes.Status201Created)]
         [ProducesResponseType(typeof(Response<object>), StatusCodes.Status400BadRequest)]
         [ProducesResponseType(typeof(Response<object>), StatusCodes.Status500InternalServerError)]
+        [Authorize]
         public async Task<IActionResult> CreateRole([FromBody] CreateRoleRequest request)
         {
             if (!ModelState.IsValid)
@@ -92,6 +94,7 @@ namespace NaLib.CoreService.API.Controllers
         [ProducesResponseType(typeof(Response<RoleDto>), StatusCodes.Status200OK)]
         [ProducesResponseType(typeof(Response<object>), StatusCodes.Status404NotFound)]
         [ProducesResponseType(typeof(Response<object>), StatusCodes.Status500InternalServerError)]
+        [Authorize]
         public async Task<IActionResult> GetRoleById(int roleId)
         {
             try
@@ -139,6 +142,7 @@ namespace NaLib.CoreService.API.Controllers
         [ProducesResponseType(typeof(Response<PermissionDto>), StatusCodes.Status201Created)]
         [ProducesResponseType(typeof(Response<object>), StatusCodes.Status400BadRequest)]
         [ProducesResponseType(typeof(Response<object>), StatusCodes.Status500InternalServerError)]
+        [Authorize]
         public async Task<IActionResult> CreatePermission([FromBody] CreatePermissionRequest request)
         {
             if (!ModelState.IsValid)
